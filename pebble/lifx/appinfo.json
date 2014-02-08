@@ -1,0 +1,17 @@
+{
+  "uuid": "ed8b83a3-ecf9-4295-935f-127a1f465b96",
+  "shortName": "lifx",
+  "longName": "lifx",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
