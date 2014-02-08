@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLFViewController : UIViewController
+@interface PLFViewController : UITableViewController
 
 @end

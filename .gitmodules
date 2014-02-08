@@ -2,3 +2,6 @@
 [submodule "ios/PebbleLIFX/External/AFNetworking"]
 	path = ios/PebbleLIFX/External/AFNetworking
 	url = git@github.com:AFNetworking/AFNetworking.git
+[submodule "ios/PebbleLIFX/External/RSColorPicker"]
+	path = ios/PebbleLIFX/External/RSColorPicker
+	url = git@github.com:RSully/RSColorPicker.git
