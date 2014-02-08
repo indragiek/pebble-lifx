@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		032152F018A6F6E300C86159 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032152EF18A6F6E300C86159 /* Foundation.framework */; };
+		032152F218A6F6E300C86159 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032152F118A6F6E300C86159 /* CoreGraphics.framework */; };
+		032152F418A6F6E300C86159 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032152F318A6F6E300C86159 /* UIKit.framework */; };
+		032152FA18A6F6E300C86159 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 032152F818A6F6E300C86159 /* InfoPlist.strings */; };
+		032152FC18A6F6E300C86159 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 032152FB18A6F6E300C86159 /* main.m */; };
+		0321530018A6F6E300C86159 /* PLFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 032152FF18A6F6E300C86159 /* PLFAppDelegate.m */; };
+		0321530318A6F6E300C86159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0321530118A6F6E300C86159 /* Main.storyboard */; };
+		0321530618A6F6E300C86159 /* PLFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321530518A6F6E300C86159 /* PLFViewController.m */; };
+		0321530818A6F6E300C86159 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0321530718A6F6E300C86159 /* Images.xcassets */; };
+		0321530F18A6F6E300C86159 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321530E18A6F6E300C86159 /* XCTest.framework */; };
+		0321531018A6F6E300C86159 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032152EF18A6F6E300C86159 /* Foundation.framework */; };
+		0321531118A6F6E300C86159 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032152F318A6F6E300C86159 /* UIKit.framework */; };
+		0321531918A6F6E300C86159 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0321531718A6F6E300C86159 /* InfoPlist.strings */; };
+		0321531B18A6F6E300C86159 /* PebbleLIFXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321531A18A6F6E300C86159 /* PebbleLIFXTests.m */; };
+		0321533918A6F84600C86159 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321532718A6F84600C86159 /* AFHTTPRequestOperation.m */; };
+		0321533A18A6F84600C86159 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321532918A6F84600C86159 /* AFHTTPRequestOperationManager.m */; };
+		0321533B18A6F84600C86159 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321532B18A6F84600C86159 /* AFHTTPSessionManager.m */; };
+		0321533C18A6F84600C86159 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321532E18A6F84600C86159 /* AFNetworkReachabilityManager.m */; };
+		0321533D18A6F84600C86159 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321533018A6F84600C86159 /* AFSecurityPolicy.m */; };
+		0321533E18A6F84600C86159 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321533218A6F84600C86159 /* AFURLConnectionOperation.m */; };
+		0321533F18A6F84600C86159 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321533418A6F84600C86159 /* AFURLRequestSerialization.m */; };
+		0321534018A6F84600C86159 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321533618A6F84600C86159 /* AFURLResponseSerialization.m */; };
+		0321534118A6F84600C86159 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321533818A6F84600C86159 /* AFURLSessionManager.m */; };
+		0321534418A6F85C00C86159 /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534218A6F85C00C86159 /* PebbleKit.framework */; };
+		0321534518A6F85C00C86159 /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534318A6F85C00C86159 /* PebbleVendor.framework */; };
+		0321534718A6F8AD00C86159 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534618A6F8AD00C86159 /* ExternalAccessory.framework */; };
+		0321534918A6F8B700C86159 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534818A6F8B700C86159 /* libz.dylib */; };
+		0321534B18A6F8BC00C86159 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534A18A6F8BC00C86159 /* CoreBluetooth.framework */; };
+		0321534D18A6F8C500C86159 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534C18A6F8C500C86159 /* CoreMotion.framework */; };
+		0321534F18A6F8CA00C86159 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534E18A6F8CA00C86159 /* MessageUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0321531218A6F6E300C86159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 032152E418A6F6E300C86159 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 032152EB18A6F6E300C86159;
+			remoteInfo = PebbleLIFX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		032152EC18A6F6E300C86159 /* PebbleLIFX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PebbleLIFX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		032152EF18A6F6E300C86159 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		032152F118A6F6E300C86159 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		032152F318A6F6E300C86159 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		032152F718A6F6E300C86159 /* PebbleLIFX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PebbleLIFX-Info.plist"; sourceTree = "<group>"; };
+		032152F918A6F6E300C86159 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		032152FB18A6F6E300C86159 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		032152FD18A6F6E300C86159 /* PebbleLIFX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PebbleLIFX-Prefix.pch"; sourceTree = "<group>"; };
+		032152FE18A6F6E300C86159 /* PLFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFAppDelegate.h; sourceTree = "<group>"; };
+		032152FF18A6F6E300C86159 /* PLFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFAppDelegate.m; sourceTree = "<group>"; };
+		0321530218A6F6E300C86159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0321530418A6F6E300C86159 /* PLFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFViewController.h; sourceTree = "<group>"; };
+		0321530518A6F6E300C86159 /* PLFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFViewController.m; sourceTree = "<group>"; };
+		0321530718A6F6E300C86159 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0321530D18A6F6E300C86159 /* PebbleLIFXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PebbleLIFXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0321530E18A6F6E300C86159 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0321531618A6F6E300C86159 /* PebbleLIFXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PebbleLIFXTests-Info.plist"; sourceTree = "<group>"; };
+		0321531818A6F6E300C86159 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0321531A18A6F6E300C86159 /* PebbleLIFXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PebbleLIFXTests.m; sourceTree = "<group>"; };
+		0321532618A6F84600C86159 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		0321532718A6F84600C86159 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		0321532818A6F84600C86159 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		0321532918A6F84600C86159 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		0321532A18A6F84600C86159 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		0321532B18A6F84600C86159 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		0321532C18A6F84600C86159 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		0321532D18A6F84600C86159 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		0321532E18A6F84600C86159 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		0321532F18A6F84600C86159 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		0321533018A6F84600C86159 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		0321533118A6F84600C86159 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		0321533218A6F84600C86159 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		0321533318A6F84600C86159 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		0321533418A6F84600C86159 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		0321533518A6F84600C86159 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		0321533618A6F84600C86159 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		0321533718A6F84600C86159 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		0321533818A6F84600C86159 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		0321534218A6F85C00C86159 /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PebbleKit.framework; path = External/PebbleKit.framework; sourceTree = "<group>"; };
+		0321534318A6F85C00C86159 /* PebbleVendor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PebbleVendor.framework; path = External/PebbleVendor.framework; sourceTree = "<group>"; };
+		0321534618A6F8AD00C86159 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		0321534818A6F8B700C86159 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		0321534A18A6F8BC00C86159 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		0321534C18A6F8C500C86159 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		0321534E18A6F8CA00C86159 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		032152E918A6F6E300C86159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0321534F18A6F8CA00C86159 /* MessageUI.framework in Frameworks */,
+				0321534D18A6F8C500C86159 /* CoreMotion.framework in Frameworks */,
+				0321534B18A6F8BC00C86159 /* CoreBluetooth.framework in Frameworks */,
+				0321534918A6F8B700C86159 /* libz.dylib in Frameworks */,
+				0321534718A6F8AD00C86159 /* ExternalAccessory.framework in Frameworks */,
+				032152F218A6F6E300C86159 /* CoreGraphics.framework in Frameworks */,
+				0321534518A6F85C00C86159 /* PebbleVendor.framework in Frameworks */,
+				0321534418A6F85C00C86159 /* PebbleKit.framework in Frameworks */,
+				032152F418A6F6E300C86159 /* UIKit.framework in Frameworks */,
+				032152F018A6F6E300C86159 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0321530A18A6F6E300C86159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0321530F18A6F6E300C86159 /* XCTest.framework in Frameworks */,
+				0321531118A6F6E300C86159 /* UIKit.framework in Frameworks */,
+				0321531018A6F6E300C86159 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		032152E318A6F6E300C86159 = {
+			isa = PBXGroup;
+			children = (
+				032152F518A6F6E300C86159 /* PebbleLIFX */,
+				0321531418A6F6E300C86159 /* PebbleLIFXTests */,
+				032152EE18A6F6E300C86159 /* Frameworks */,
+				032152ED18A6F6E300C86159 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		032152ED18A6F6E300C86159 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				032152EC18A6F6E300C86159 /* PebbleLIFX.app */,
+				0321530D18A6F6E300C86159 /* PebbleLIFXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		032152EE18A6F6E300C86159 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0321534E18A6F8CA00C86159 /* MessageUI.framework */,
+				0321534C18A6F8C500C86159 /* CoreMotion.framework */,
+				0321534A18A6F8BC00C86159 /* CoreBluetooth.framework */,
+				0321534818A6F8B700C86159 /* libz.dylib */,
+				0321534618A6F8AD00C86159 /* ExternalAccessory.framework */,
+				0321534218A6F85C00C86159 /* PebbleKit.framework */,
+				0321534318A6F85C00C86159 /* PebbleVendor.framework */,
+				032152EF18A6F6E300C86159 /* Foundation.framework */,
+				032152F118A6F6E300C86159 /* CoreGraphics.framework */,
+				032152F318A6F6E300C86159 /* UIKit.framework */,
+				0321530E18A6F6E300C86159 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		032152F518A6F6E300C86159 /* PebbleLIFX */ = {
+			isa = PBXGroup;
+			children = (
+				0321532418A6F82700C86159 /* External */,
+				032152FE18A6F6E300C86159 /* PLFAppDelegate.h */,
+				032152FF18A6F6E300C86159 /* PLFAppDelegate.m */,
+				0321530118A6F6E300C86159 /* Main.storyboard */,
+				0321530418A6F6E300C86159 /* PLFViewController.h */,
+				0321530518A6F6E300C86159 /* PLFViewController.m */,
+				0321530718A6F6E300C86159 /* Images.xcassets */,
+				032152F618A6F6E300C86159 /* Supporting Files */,
+			);
+			path = PebbleLIFX;
+			sourceTree = "<group>";
+		};
+		032152F618A6F6E300C86159 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				032152F718A6F6E300C86159 /* PebbleLIFX-Info.plist */,
+				032152F818A6F6E300C86159 /* InfoPlist.strings */,
+				032152FB18A6F6E300C86159 /* main.m */,
+				032152FD18A6F6E300C86159 /* PebbleLIFX-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0321531418A6F6E300C86159 /* PebbleLIFXTests */ = {
+			isa = PBXGroup;
+			children = (
+				0321531A18A6F6E300C86159 /* PebbleLIFXTests.m */,
+				0321531518A6F6E300C86159 /* Supporting Files */,
+			);
+			path = PebbleLIFXTests;
+			sourceTree = "<group>";
+		};
+		0321531518A6F6E300C86159 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0321531618A6F6E300C86159 /* PebbleLIFXTests-Info.plist */,
+				0321531718A6F6E300C86159 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0321532418A6F82700C86159 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				0321532518A6F84600C86159 /* AFNetworking */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		0321532518A6F84600C86159 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				0321532618A6F84600C86159 /* AFHTTPRequestOperation.h */,
+				0321532718A6F84600C86159 /* AFHTTPRequestOperation.m */,
+				0321532818A6F84600C86159 /* AFHTTPRequestOperationManager.h */,
+				0321532918A6F84600C86159 /* AFHTTPRequestOperationManager.m */,
+				0321532A18A6F84600C86159 /* AFHTTPSessionManager.h */,
+				0321532B18A6F84600C86159 /* AFHTTPSessionManager.m */,
+				0321532C18A6F84600C86159 /* AFNetworking.h */,
+				0321532D18A6F84600C86159 /* AFNetworkReachabilityManager.h */,
+				0321532E18A6F84600C86159 /* AFNetworkReachabilityManager.m */,
+				0321532F18A6F84600C86159 /* AFSecurityPolicy.h */,
+				0321533018A6F84600C86159 /* AFSecurityPolicy.m */,
+				0321533118A6F84600C86159 /* AFURLConnectionOperation.h */,
+				0321533218A6F84600C86159 /* AFURLConnectionOperation.m */,
+				0321533318A6F84600C86159 /* AFURLRequestSerialization.h */,
+				0321533418A6F84600C86159 /* AFURLRequestSerialization.m */,
+				0321533518A6F84600C86159 /* AFURLResponseSerialization.h */,
+				0321533618A6F84600C86159 /* AFURLResponseSerialization.m */,
+				0321533718A6F84600C86159 /* AFURLSessionManager.h */,
+				0321533818A6F84600C86159 /* AFURLSessionManager.m */,
+			);
+			name = AFNetworking;
+			path = External/AFNetworking/AFNetworking;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		032152EB18A6F6E300C86159 /* PebbleLIFX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0321531E18A6F6E300C86159 /* Build configuration list for PBXNativeTarget "PebbleLIFX" */;
+			buildPhases = (
+				032152E818A6F6E300C86159 /* Sources */,
+				032152E918A6F6E300C86159 /* Frameworks */,
+				032152EA18A6F6E300C86159 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PebbleLIFX;
+			productName = PebbleLIFX;
+			productReference = 032152EC18A6F6E300C86159 /* PebbleLIFX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0321530C18A6F6E300C86159 /* PebbleLIFXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0321532118A6F6E300C86159 /* Build configuration list for PBXNativeTarget "PebbleLIFXTests" */;
+			buildPhases = (
+				0321530918A6F6E300C86159 /* Sources */,
+				0321530A18A6F6E300C86159 /* Frameworks */,
+				0321530B18A6F6E300C86159 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0321531318A6F6E300C86159 /* PBXTargetDependency */,
+			);
+			name = PebbleLIFXTests;
+			productName = PebbleLIFXTests;
+			productReference = 0321530D18A6F6E300C86159 /* PebbleLIFXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		032152E418A6F6E300C86159 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PLF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Indragie Karunaratne";
+				TargetAttributes = {
+					0321530C18A6F6E300C86159 = {
+						TestTargetID = 032152EB18A6F6E300C86159;
+					};
+				};
+			};
+			buildConfigurationList = 032152E718A6F6E300C86159 /* Build configuration list for PBXProject "PebbleLIFX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 032152E318A6F6E300C86159;
+			productRefGroup = 032152ED18A6F6E300C86159 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				032152EB18A6F6E300C86159 /* PebbleLIFX */,
+				0321530C18A6F6E300C86159 /* PebbleLIFXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		032152EA18A6F6E300C86159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0321530818A6F6E300C86159 /* Images.xcassets in Resources */,
+				032152FA18A6F6E300C86159 /* InfoPlist.strings in Resources */,
+				0321530318A6F6E300C86159 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0321530B18A6F6E300C86159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0321531918A6F6E300C86159 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		032152E818A6F6E300C86159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0321533918A6F84600C86159 /* AFHTTPRequestOperation.m in Sources */,
+				0321530618A6F6E300C86159 /* PLFViewController.m in Sources */,
+				0321533A18A6F84600C86159 /* AFHTTPRequestOperationManager.m in Sources */,
+				0321533C18A6F84600C86159 /* AFNetworkReachabilityManager.m in Sources */,
+				0321534018A6F84600C86159 /* AFURLResponseSerialization.m in Sources */,
+				0321533E18A6F84600C86159 /* AFURLConnectionOperation.m in Sources */,
+				0321533D18A6F84600C86159 /* AFSecurityPolicy.m in Sources */,
+				0321533B18A6F84600C86159 /* AFHTTPSessionManager.m in Sources */,
+				0321533F18A6F84600C86159 /* AFURLRequestSerialization.m in Sources */,
+				0321534118A6F84600C86159 /* AFURLSessionManager.m in Sources */,
+				032152FC18A6F6E300C86159 /* main.m in Sources */,
+				0321530018A6F6E300C86159 /* PLFAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0321530918A6F6E300C86159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0321531B18A6F6E300C86159 /* PebbleLIFXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0321531318A6F6E300C86159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 032152EB18A6F6E300C86159 /* PebbleLIFX */;
+			targetProxy = 0321531218A6F6E300C86159 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		032152F818A6F6E300C86159 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				032152F918A6F6E300C86159 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0321530118A6F6E300C86159 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0321530218A6F6E300C86159 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0321531718A6F6E300C86159 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0321531818A6F6E300C86159 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0321531C18A6F6E300C86159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0321531D18A6F6E300C86159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0321531F18A6F6E300C86159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PebbleLIFX/PebbleLIFX-Prefix.pch";
+				INFOPLIST_FILE = "PebbleLIFX/PebbleLIFX-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0321532018A6F6E300C86159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PebbleLIFX/PebbleLIFX-Prefix.pch";
+				INFOPLIST_FILE = "PebbleLIFX/PebbleLIFX-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0321532218A6F6E300C86159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PebbleLIFX.app/PebbleLIFX";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PebbleLIFX/PebbleLIFX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PebbleLIFXTests/PebbleLIFXTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0321532318A6F6E300C86159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PebbleLIFX.app/PebbleLIFX";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PebbleLIFX/PebbleLIFX-Prefix.pch";
+				INFOPLIST_FILE = "PebbleLIFXTests/PebbleLIFXTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		032152E718A6F6E300C86159 /* Build configuration list for PBXProject "PebbleLIFX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0321531C18A6F6E300C86159 /* Debug */,
+				0321531D18A6F6E300C86159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0321531E18A6F6E300C86159 /* Build configuration list for PBXNativeTarget "PebbleLIFX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0321531F18A6F6E300C86159 /* Debug */,
+				0321532018A6F6E300C86159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0321532118A6F6E300C86159 /* Build configuration list for PBXNativeTarget "PebbleLIFXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0321532218A6F6E300C86159 /* Debug */,
+				0321532318A6F6E300C86159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 032152E418A6F6E300C86159 /* Project object */;
+}
