@@ -91,7 +91,6 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 	} else if ([method isEqualToString:@(APPMSG_METHOD_UPDATE_BULB_STATE)]) {
 		[self handleBulbStateUpdate:update];
 	} else if ([method isEqualToString:@(APPMSG_METHOD_GET_COLORS)]) {
-		NSLog(@"got color request");
 		[self handleColorRequest:update];
 	} else if ([method isEqualToString:@(APPMSG_METHOD_UPDATE_BULB_COLOR)]) {
 		[self handleBulbColorUpdate:update];
@@ -171,18 +170,16 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 {
 	PLFPebbleAppMessageUpdate *update = [PLFPebbleAppMessageUpdate updateWithDictionary:dict onSent:onSent];
 	[self.updateQueue addObject:update];
-	/*if (self.updateOutbox.count) {
-		
+	if (self.updateOutbox.count) {
+		// Gross way of trying to make sure that the Pebble's inbound buffer does not get
+		// overloaded from too many successive updates.
+		dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
+		dispatch_after(time, dispatch_get_main_queue(), ^{
+			[self pushNextUpdate];
+		});
 	} else {
 		[self pushNextUpdate];
-	}*/
-	
-	// Gross way of trying to make sure that the Pebble's inbound buffer does not get
-	// overloaded from too many successive updates.
-	dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
-	dispatch_after(time, dispatch_get_main_queue(), ^{
-		[self pushNextUpdate];
-	});
+	}
 }
 
 - (void)pushNextUpdate

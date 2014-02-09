@@ -283,7 +283,6 @@ static void main_click(struct MenuLayer *menu_layer, MenuIndex *cell_index, void
 		window_stack_push(bulb_window, true);
 		selected_bulb_index = cell_index->row;
 		msg_request_colors(APPMSG_COLOR_TYPE_CUSTOM);
-		//msg_request_colors(APPMSG_COLOR_TYPE_DEFAULT);
 	}
 }
 
