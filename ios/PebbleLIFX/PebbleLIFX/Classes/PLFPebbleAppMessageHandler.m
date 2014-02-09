@@ -9,6 +9,7 @@
 #import "PLFPebbleAppMessageHandler.h"
 #import "LIFXBulbState.h"
 #import "LIFXBulbStub.h"
+#import "PLFColor.h"
 #import "keys.h"
 #import <PebbleKit/PebbleKit.h>
 
@@ -89,6 +90,11 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 		[self handleBulbRequest];
 	} else if ([method isEqualToString:@(APPMSG_METHOD_UPDATE_BULB_STATE)]) {
 		[self handleBulbStateUpdate:update];
+	} else if ([method isEqualToString:@(APPMSG_METHOD_GET_COLORS)]) {
+		NSLog(@"got color request");
+		[self handleColorRequest:update];
+	} else if ([method isEqualToString:@(APPMSG_METHOD_UPDATE_BULB_COLOR)]) {
+		[self handleBulbColorUpdate:update];
 	}
 }
 
@@ -99,12 +105,14 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 		NSDictionary *begin = @{@(APPMSG_METHOD_KEY) : @(APPMSG_METHOD_BEGIN_RELOAD_BULBS),
 								@(APPMSG_COUNT_KEY) : @(bulbStates.count)};
 		[self queueUpdate:begin onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
-			if (error != nil) return;
+			if (error != nil) {
+				NSLog(@"%@", error);
+			}
 			for (LIFXBulbState *state in bulbStates) {
 				NSDictionary *update = @{@(APPMSG_METHOD_KEY): @(APPMSG_METHOD_RECEIVE_BULB),
-										 @(APPMSG_BULB_INDEX_KEY) : @(state.bulb.index),
+										 @(APPMSG_INDEX_KEY) : @(state.bulb.index),
 										 @(APPMSG_BULB_STATE_KEY) : @(state.on),
-										 @(APPMSG_BULB_LABEL_KEY) : state.label};
+										 @(APPMSG_LABEL_KEY) : state.label};
 				[self queueUpdate:update onSent:nil];
 			}
 			NSDictionary *end = @{@(APPMSG_METHOD_KEY) : @(APPMSG_METHOD_END_RELOAD_BULBS)};
@@ -116,8 +124,44 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 - (void)handleBulbStateUpdate:(NSDictionary *)update
 {
 	BOOL state = [update[@(APPMSG_BULB_STATE_KEY)] boolValue];
-	NSUInteger index = [update[@(APPMSG_BULB_INDEX_KEY)] unsignedIntegerValue];
+	NSUInteger index = [update[@(APPMSG_INDEX_KEY)] unsignedIntegerValue];
 	[self.delegate appMessageHandler:self setOn:state forBulbAtIndex:index];
+}
+
+- (void)handleColorRequest:(NSDictionary *)update
+{
+	PLFPebbleAppMessageColorType colorType = [update[@(APPMSG_COLOR_TYPE_KEY)] integerValue];
+	NSArray *colors = [self.delegate appMessageHandler:self colorsForType:colorType];
+	if (colors.count) {
+		NSDictionary *begin = @{@(APPMSG_METHOD_KEY) : @(APPMSG_METHOD_BEGIN_RELOAD_COLORS),
+								@(APPMSG_COUNT_KEY) : @(colors.count),
+								@(APPMSG_COLOR_TYPE_KEY) : @(colorType)};
+		[self queueUpdate:begin onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+			if (error != nil) {
+				NSLog(@"%@", error);
+			}
+			[colors enumerateObjectsUsingBlock:^(PLFColor *color, NSUInteger idx, BOOL *stop) {
+				NSDictionary *update = @{@(APPMSG_METHOD_KEY) : @(APPMSG_METHOD_RECEIVE_COLOR),
+										 @(APPMSG_INDEX_KEY) : @(idx),
+										 @(APPMSG_LABEL_KEY) : color.label,
+										 @(APPMSG_COLOR_TYPE_KEY) : @(colorType)};
+				[self queueUpdate:update onSent:nil];
+			}];
+			NSDictionary *end = @{@(APPMSG_METHOD_KEY) : @(APPMSG_METHOD_END_RELOAD_COLORS),
+								  @(APPMSG_COLOR_TYPE_KEY) : @(colorType)};
+			[self queueUpdate:end onSent:^(PBWatch *watch, NSDictionary *dict, NSError *error) {
+				NSLog(@"Sent: %@", error);
+			}];
+		}];
+	}
+}
+
+- (void)handleBulbColorUpdate:(NSDictionary *)update
+{
+	NSUInteger colorIndex = [update[@(APPMSG_COLOR_INDEX_KEY)] unsignedIntegerValue];
+	NSUInteger bulbIndex = [update[@(APPMSG_INDEX_KEY)] unsignedIntegerValue];
+	PLFPebbleAppMessageColorType type = [update[@(APPMSG_COLOR_TYPE_KEY)] integerValue];
+	[self.delegate appMessageHandler:self setColorAtIndex:colorIndex ofType:type forBulbAtIndex:bulbIndex];
 }
 
 #pragma mark - Queueing
@@ -126,16 +170,18 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 {
 	PLFPebbleAppMessageUpdate *update = [PLFPebbleAppMessageUpdate updateWithDictionary:dict onSent:onSent];
 	[self.updateQueue addObject:update];
-	if (self.updateOutbox.count) {
-		// Gross way of trying to make sure that the Pebble's inbound buffer does not get
-		// overloaded from too many successive updates.
-		dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC));
-		dispatch_after(time, dispatch_get_main_queue(), ^{
-			[self pushNextUpdate];
-		});
+	/*if (self.updateOutbox.count) {
+		
 	} else {
 		[self pushNextUpdate];
-	}
+	}*/
+	
+	// Gross way of trying to make sure that the Pebble's inbound buffer does not get
+	// overloaded from too many successive updates.
+	dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
+	dispatch_after(time, dispatch_get_main_queue(), ^{
+		[self pushNextUpdate];
+	});
 }
 
 - (void)pushNextUpdate

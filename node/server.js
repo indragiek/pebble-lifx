@@ -82,5 +82,5 @@ server.post('/bulbs/:idx/dim_absolute', set_dim_absolute);
 server.post('/bulbs/:idx/dim_relative', set_dim_relative);
 
 server.listen(3000, function() {
-	console.log('Server listening at %s', server.name, server.url);
+	console.log('Server listening at %s', server.url);
 });

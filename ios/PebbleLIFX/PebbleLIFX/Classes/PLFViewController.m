@@ -149,6 +149,38 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 	}];
 }
 
+- (NSArray *)appMessageHandler:(PLFPebbleAppMessageHandler *)handler colorsForType:(PLFPebbleAppMessageColorType)type
+{
+	switch (type) {
+		case PLFPebbleAppMessageColorTypeCustom:
+			return self.colors;
+		case PLFPebbleAppMessageColorTypeDefault:
+			return self.class.defaultColors;
+		default:
+			return nil;
+	}
+}
+
+- (void)appMessageHandler:(PLFPebbleAppMessageHandler *)handler setColorAtIndex:(NSUInteger)colorIndex ofType:(PLFPebbleAppMessageColorType)type forBulbAtIndex:(NSUInteger)bulbIndex
+{
+	LIFXBulbState *state = self.bulbStates[bulbIndex];
+	PLFColor *color = nil;
+	switch (type) {
+		case PLFPebbleAppMessageColorTypeDefault:
+			color = self.class.defaultColors[colorIndex];
+			break;
+		case PLFPebbleAppMessageColorTypeCustom:
+			color = self.colors[colorIndex];
+		default:
+			break;
+	}
+	if (color) {
+		[self.lifxManager setColor:color.color forBulb:state.bulb withSuccess:nil failure:^(NSURLSessionDataTask *task, NSError *error) {
+			NSLog(@"%@", error);
+		}];
+	}
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

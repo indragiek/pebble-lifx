@@ -7,6 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "keys.h"
+
+typedef NS_ENUM(NSInteger, PLFPebbleAppMessageColorType) {
+	PLFPebbleAppMessageColorTypeCustom = APPMSG_COLOR_TYPE_CUSTOM,
+	PLFPebbleAppMessageColorTypeDefault = APPMSG_COLOR_TYPE_DEFAULT
+};
 
 @protocol PLFPebbleAppMessageHandlerDelegate;
 
@@ -22,4 +28,6 @@
 // Return array of LIFXBulbState objects.
 - (NSArray *)appMessageHandlerHandleBulbRequest:(PLFPebbleAppMessageHandler *)handler;
 - (void)appMessageHandler:(PLFPebbleAppMessageHandler *)handler setOn:(BOOL)on forBulbAtIndex:(NSUInteger)index;
+- (void)appMessageHandler:(PLFPebbleAppMessageHandler *)handler setColorAtIndex:(NSUInteger)colorIndex ofType:(PLFPebbleAppMessageColorType)type forBulbAtIndex:(NSUInteger)bulbIndex;
+- (NSArray *)appMessageHandler:(PLFPebbleAppMessageHandler *)handler colorsForType:(PLFPebbleAppMessageColorType)type;
 @end
