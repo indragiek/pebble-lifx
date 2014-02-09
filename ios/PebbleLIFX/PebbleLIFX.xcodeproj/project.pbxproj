@@ -234,6 +234,7 @@
 		03976F1C18A73610008FE84C /* LIFXBulbStub_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LIFXBulbStub_Private.h; path = Classes/LIFXBulbStub_Private.h; sourceTree = "<group>"; };
 		03976F1D18A74105008FE84C /* LIFXBulbState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LIFXBulbState.h; path = Classes/LIFXBulbState.h; sourceTree = "<group>"; };
 		03976F1E18A74105008FE84C /* LIFXBulbState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LIFXBulbState.m; path = Classes/LIFXBulbState.m; sourceTree = "<group>"; };
+		03976F2218A75B16008FE84C /* LIFXBulbState_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LIFXBulbState_Private.h; path = Classes/LIFXBulbState_Private.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,6 +505,7 @@
 				03976F1C18A73610008FE84C /* LIFXBulbStub_Private.h */,
 				03976F1D18A74105008FE84C /* LIFXBulbState.h */,
 				03976F1E18A74105008FE84C /* LIFXBulbState.m */,
+				03976F2218A75B16008FE84C /* LIFXBulbState_Private.h */,
 			);
 			name = LIFX;
 			sourceTree = "<group>";

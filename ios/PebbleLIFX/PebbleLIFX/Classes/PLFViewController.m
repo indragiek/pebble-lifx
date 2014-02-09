@@ -14,6 +14,7 @@
 #import "PLFColorPickerViewController.h"
 #import "NSUserDefaults+PLFPreferences.h"
 #import "LIFXSessionManager.h"
+#import "LIFXBulbState_Private.h"
 #import <PebbleKit/PebbleKit.h>
 
 static NSInteger const PLFPebbleSectionIndex = 0;
@@ -231,7 +232,13 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 {
 	CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
 	NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-	NSLog(@"%@", indexPath);
+	LIFXBulbState *state = self.bulbStates[indexPath.row];
+
+	[self.lifxManager setOn:!state.on forBulb:state.bulb withSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+		state.on = !state.on;
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
+		NSLog(@"%@", error);
+	}];
 }
 
 #pragma mark - Segues

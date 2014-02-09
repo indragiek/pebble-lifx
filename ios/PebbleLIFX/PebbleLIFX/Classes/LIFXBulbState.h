@@ -12,11 +12,12 @@
 
 @interface LIFXBulbState : MTLModel <MTLJSONSerializing>
 @property (nonatomic, strong, readonly) LIFXBulbStub *bulb;
-@property (nonatomic, assign, readonly) int16_t hue;
-@property (nonatomic, assign, readonly) int16_t saturation;
-@property (nonatomic, assign, readonly) int16_t brightness;
-@property (nonatomic, assign, readonly) int16_t dim;
-@property (nonatomic, assign, readonly) int16_t kelvin;
-@property (nonatomic, assign, readonly) int16_t power;
+@property (nonatomic, assign, readonly) uint16_t hue;
+@property (nonatomic, assign, readonly) uint16_t saturation;
+@property (nonatomic, assign, readonly) uint16_t brightness;
+@property (nonatomic, assign, readonly) uint16_t dim;
+@property (nonatomic, assign, readonly) uint16_t kelvin;
+@property (nonatomic, assign, readonly) uint16_t power;
 @property (nonatomic, copy, readonly) NSString *label;
+@property (nonatomic, assign, readonly, getter = isOn) BOOL on;
 @end

@@ -56,4 +56,10 @@
 	} failure:failure];
 }
 
+- (NSURLSessionDataTask *)setOn:(BOOL)on forBulb:(LIFXBulbStub *)stub withSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+	NSString *path = [NSString stringWithFormat:@"/bulbs/%lu/on_off", (unsigned long)stub.index];
+	return [self POST:path parameters:@{@"state" : @(on)} success:success failure:failure];
+}
+
 @end
