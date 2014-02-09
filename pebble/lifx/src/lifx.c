@@ -39,6 +39,8 @@ static Bulb *bulbs;
 static Color *default_colors;
 static Color *custom_colors;
 
+static int selected_bulb_index;
+
 /////////////////////////////////////
 // App Message
 /////////////////////////////////////
@@ -48,6 +50,17 @@ static void msg_request_colors(int type) {
 	app_message_outbox_begin(&iterator);
 	dict_write_cstring(iterator, APPMSG_METHOD_KEY, APPMSG_METHOD_GET_COLORS);
 	dict_write_uint8(iterator, APPMSG_COLOR_TYPE_KEY, type);
+	dict_write_end(iterator);
+	app_message_outbox_send();
+}
+
+static void msg_set_color(int colorIndex, int type) {
+	DictionaryIterator *iterator;
+	app_message_outbox_begin(&iterator);
+	dict_write_cstring(iterator, APPMSG_METHOD_KEY, APPMSG_METHOD_UPDATE_BULB_COLOR);
+	dict_write_uint8(iterator, APPMSG_COLOR_TYPE_KEY, type);
+	dict_write_uint8(iterator, APPMSG_INDEX_KEY, selected_bulb_index);
+	dict_write_uint8(iterator, APPMSG_COLOR_INDEX_KEY, colorIndex);
 	dict_write_end(iterator);
 	app_message_outbox_send();
 }
@@ -266,10 +279,11 @@ static void main_draw_header(GContext *ctx, const Layer *cell_layer, uint16_t se
 }
 
 static void main_click(struct MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context) {
-	if (bulbs_loading == false) {
+	if (!bulbs_loading) {
 		window_stack_push(bulb_window, true);
-		msg_request_colors(APPMSG_COLOR_TYPE_DEFAULT);
-		//msg_request_colors(APPMSG_COLOR_TYPE_CUSTOM);
+		selected_bulb_index = cell_index->row;
+		msg_request_colors(APPMSG_COLOR_TYPE_CUSTOM);
+		//msg_request_colors(APPMSG_COLOR_TYPE_DEFAULT);
 	}
 }
 
@@ -361,6 +375,25 @@ static void bulb_draw_header(GContext *ctx, const Layer *cell_layer, uint16_t se
 	}
 }
 
+static void bulb_click(struct MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context) {
+	switch (cell_index->section) {
+		case CUSTOM_COLORS_SECTION: {
+			if (!custom_colors_loading) {
+				msg_set_color(cell_index->row, APPMSG_COLOR_TYPE_CUSTOM);
+			}
+			break;
+		}
+		case DEFAULT_COLORS_SECTION: {
+			if (!default_colors_loading) {
+				msg_set_color(cell_index->row, APPMSG_COLOR_TYPE_DEFAULT);
+			}
+			break;
+		}
+		default:
+			break;
+	}
+}
+
 /////////////////////////////////////
 // Bulb Window
 /////////////////////////////////////
@@ -375,6 +408,7 @@ static void bulb_window_load(Window *window) {
 		.get_header_height = bulb_header_height,
 		.get_num_rows = bulb_num_rows,
 		.get_num_sections = bulb_num_sections,
+		.select_click = bulb_click,
 	});
 	menu_layer_set_click_config_onto_window(bulb_menu, window);
 	layer_add_child(window_layer, menu_layer_get_layer(bulb_menu));

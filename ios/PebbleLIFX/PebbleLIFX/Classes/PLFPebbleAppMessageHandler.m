@@ -146,6 +146,7 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 										 @(APPMSG_LABEL_KEY) : color.label,
 										 @(APPMSG_COLOR_TYPE_KEY) : @(colorType)};
 				[self queueUpdate:update onSent:nil];
+				*stop = YES;
 			}];
 			NSDictionary *end = @{@(APPMSG_METHOD_KEY) : @(APPMSG_METHOD_END_RELOAD_COLORS),
 								  @(APPMSG_COLOR_TYPE_KEY) : @(colorType)};
