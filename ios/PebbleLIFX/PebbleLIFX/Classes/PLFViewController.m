@@ -90,6 +90,11 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 			[paths addObject:path];
 		}];
 		[self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
+		[self.lifxManager getStateForBulb:stubs[0] success:^(NSURLSessionDataTask *task, id responseObject) {
+			NSLog(@"%@", responseObject);
+		} failure:^(NSURLSessionDataTask *task, NSError *error) {
+			NSLog(@"%@", error);
+		}];
 	} failure:^(NSURLSessionDataTask *task, NSError *error) {
 		NSLog(@"%@", error);
 	}];

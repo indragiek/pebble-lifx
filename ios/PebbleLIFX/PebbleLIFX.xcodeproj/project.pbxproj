@@ -69,6 +69,7 @@
 		03976F1218A71F87008FE84C /* RSSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976F0018A71F87008FE84C /* RSSelectionView.m */; };
 		03976F1518A73055008FE84C /* LIFXBulbStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976F1418A73055008FE84C /* LIFXBulbStub.m */; };
 		03976F1B18A7342B008FE84C /* PLFBulbTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976F1A18A7342B008FE84C /* PLFBulbTableViewCell.m */; };
+		03976F1F18A74105008FE84C /* LIFXBulbState.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976F1E18A74105008FE84C /* LIFXBulbState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +232,8 @@
 		03976F1918A7342B008FE84C /* PLFBulbTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFBulbTableViewCell.h; path = Classes/PLFBulbTableViewCell.h; sourceTree = "<group>"; };
 		03976F1A18A7342B008FE84C /* PLFBulbTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFBulbTableViewCell.m; path = Classes/PLFBulbTableViewCell.m; sourceTree = "<group>"; };
 		03976F1C18A73610008FE84C /* LIFXBulbStub_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LIFXBulbStub_Private.h; path = Classes/LIFXBulbStub_Private.h; sourceTree = "<group>"; };
+		03976F1D18A74105008FE84C /* LIFXBulbState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LIFXBulbState.h; path = Classes/LIFXBulbState.h; sourceTree = "<group>"; };
+		03976F1E18A74105008FE84C /* LIFXBulbState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LIFXBulbState.m; path = Classes/LIFXBulbState.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +337,8 @@
 				03976F1918A7342B008FE84C /* PLFBulbTableViewCell.h */,
 				03976F1A18A7342B008FE84C /* PLFBulbTableViewCell.m */,
 				03976F1C18A73610008FE84C /* LIFXBulbStub_Private.h */,
+				03976F1D18A74105008FE84C /* LIFXBulbState.h */,
+				03976F1E18A74105008FE84C /* LIFXBulbState.m */,
 				0321530718A6F6E300C86159 /* Images.xcassets */,
 				032152F618A6F6E300C86159 /* Supporting Files */,
 			);
@@ -650,6 +655,7 @@
 				0321533C18A6F84600C86159 /* AFNetworkReachabilityManager.m in Sources */,
 				03976F0618A71F87008FE84C /* CGContextCreator.m in Sources */,
 				03976F0C18A71F87008FE84C /* BitmapScaleManipulator.m in Sources */,
+				03976F1F18A74105008FE84C /* LIFXBulbState.m in Sources */,
 				0321537018A7170100C86159 /* NSUserDefaults+PLFPreferences.m in Sources */,
 				03976F0F18A71F87008FE84C /* RSColorPickerState.m in Sources */,
 				03976F0A18A71F87008FE84C /* BitmapDrawManipulator.m in Sources */,
