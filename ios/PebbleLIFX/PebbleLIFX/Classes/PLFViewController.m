@@ -77,6 +77,11 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 	self.connectedWatch = PBPebbleCentral.defaultCentral.lastConnectedWatch;
 }
 
+- (void)dealloc
+{
+	[self.connectedWatch closeSession:nil];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -190,4 +195,6 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 {
 	NSUserDefaults.standardUserDefaults.plf_savedColors = self.colors;
 }
+
+
 @end
