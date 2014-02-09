@@ -10,4 +10,5 @@
 
 @interface NSUserDefaults (PLFPreferences)
 @property (nonatomic, copy) NSString *plf_serverAddress;
+@property (nonatomic, strong) NSArray *plf_savedColors; // Array of PFColor objects
 @end

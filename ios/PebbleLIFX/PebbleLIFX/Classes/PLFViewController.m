@@ -11,6 +11,7 @@
 #import "PLFColorTableViewCell.h"
 #import "PLFColor.h"
 #import "PLFColorPickerViewController.h"
+#import "NSUserDefaults+PLFPreferences.h"
 #import <PebbleKit/PebbleKit.h>
 
 static NSInteger const PLFPebbleSectionIndex = 0;
@@ -31,12 +32,12 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 	static NSArray *colors = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		colors = @[[PLFColor colorWithLabel:@"Red" color:UIColor.redColor],
-				   [PLFColor colorWithLabel:@"Orange" color:UIColor.orangeColor],
-				   [PLFColor colorWithLabel:@"Yellow" color:UIColor.yellowColor],
-				   [PLFColor colorWithLabel:@"Green" color:UIColor.greenColor],
-				   [PLFColor colorWithLabel:@"Blue" color:UIColor.blueColor],
-				   [PLFColor colorWithLabel:@"Purple" color:UIColor.purpleColor]];
+		colors = @[[PLFColor colorWithLabel:@"Red" color:[UIColor colorWithRed:1.00 green:0.26 blue:0.32 alpha:1.0]],
+				   [PLFColor colorWithLabel:@"Orange" color:[UIColor colorWithRed:0.99 green:0.53 blue:0.06 alpha:1.0]],
+				   [PLFColor colorWithLabel:@"Yellow" color:[UIColor colorWithRed:1.00 green:0.83 blue:0.15 alpha:1.0]],
+				   [PLFColor colorWithLabel:@"Green" color:[UIColor colorWithRed:0.23 green:0.89 blue:0.21 alpha:1.0]],
+				   [PLFColor colorWithLabel:@"Blue" color:[UIColor colorWithRed:0.11 green:0.60 blue:0.97 alpha:1.0]],
+				   [PLFColor colorWithLabel:@"Purple" color:[UIColor colorWithRed:0.41 green:0.36 blue:0.93 alpha:1.0]]];
 	});
 	return colors;
 }
@@ -46,6 +47,10 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 - (void)commonInitForPLFViewController
 {
 	_colors = [NSMutableArray array];
+	NSArray *savedColors = NSUserDefaults.standardUserDefaults.plf_savedColors;
+	if (savedColors.count) {
+		[_colors addObjectsFromArray:savedColors];
+	}
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -146,7 +151,11 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 
 - (void)colorPicker:(PLFColorPickerViewController *)picker didPickColor:(UIColor *)color withLabel:(NSString *)label
 {
-	NSLog(@"%@ %@", color, label);
+	PLFColor *colorObject = [PLFColor colorWithLabel:label color:color];
+	[self.colors insertObject:colorObject atIndex:0];
+	[self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:PLFCustomColorsSectionIndex]] withRowAnimation:UITableViewRowAnimationAutomatic];
+	NSUserDefaults.standardUserDefaults.plf_savedColors = self.colors;
+	[NSUserDefaults.standardUserDefaults synchronize];
 }
 
 - (void)colorPicker:(PLFColorPickerViewController *)picker didSelectColor:(UIColor *)color
