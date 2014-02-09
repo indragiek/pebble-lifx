@@ -193,7 +193,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 	}
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	PLFColor *color = nil;
 	if (indexPath.section == PLFCustomColorsSectionIndex) {
@@ -209,7 +209,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 		}];
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
+}*/
 
 #pragma mark - Segues
 
@@ -234,7 +234,12 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
 - (void)colorPicker:(PLFColorPickerViewController *)picker didSelectColor:(UIColor *)color
 {
-	
+	if (self.bulbs.count) {
+		// TODO: Fix this to work with all bulbs instead of just the first bulb.
+		[self.lifxManager setColor:color forBulb:self.bulbs[0] withSuccess:nil failure:^(NSURLSessionDataTask *task, NSError *error) {
+			NSLog(@"%@", error);
+		}];
+	}
 }
 
 - (void)persistCustomColors
