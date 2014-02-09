@@ -193,7 +193,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 	}
 }
 
-/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	PLFColor *color = nil;
 	if (indexPath.section == PLFCustomColorsSectionIndex) {
@@ -202,14 +202,10 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 		color = self.class.defaultColors[indexPath.row];
 	}
 	if (color) {
-		[self.lifxManager setColor:color.color forBulb:self.bulbs[0] withSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-			NSLog(@"Success");
-		} failure:^(NSURLSessionDataTask *task, NSError *error) {
-			NSLog(@"%@", error);
-		}];
+		[self testBulbColor:color.color];
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-}*/
+}
 
 #pragma mark - Segues
 
@@ -233,6 +229,11 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 }
 
 - (void)colorPicker:(PLFColorPickerViewController *)picker didSelectColor:(UIColor *)color
+{
+	[self testBulbColor:color];
+}
+
+- (void)testBulbColor:(UIColor *)color
 {
 	if (self.bulbs.count) {
 		// TODO: Fix this to work with all bulbs instead of just the first bulb.
