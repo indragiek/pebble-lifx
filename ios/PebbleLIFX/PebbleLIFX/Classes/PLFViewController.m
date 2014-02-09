@@ -63,7 +63,6 @@ static NSInteger const PLFColorsSectionIndex = 1;
 {
 	[super viewDidLoad];
 	self.connectedWatch = PBPebbleCentral.defaultCentral.lastConnectedWatch;
-	NSLog(@"%@", self.connectedWatch.name);
 }
 
 #pragma mark - UITableViewDataSource

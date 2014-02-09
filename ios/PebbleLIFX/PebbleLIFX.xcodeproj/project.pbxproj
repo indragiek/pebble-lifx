@@ -12,9 +12,7 @@
 		032152F418A6F6E300C86159 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032152F318A6F6E300C86159 /* UIKit.framework */; };
 		032152FA18A6F6E300C86159 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 032152F818A6F6E300C86159 /* InfoPlist.strings */; };
 		032152FC18A6F6E300C86159 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 032152FB18A6F6E300C86159 /* main.m */; };
-		0321530018A6F6E300C86159 /* PLFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 032152FF18A6F6E300C86159 /* PLFAppDelegate.m */; };
 		0321530318A6F6E300C86159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0321530118A6F6E300C86159 /* Main.storyboard */; };
-		0321530618A6F6E300C86159 /* PLFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321530518A6F6E300C86159 /* PLFViewController.m */; };
 		0321530818A6F6E300C86159 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0321530718A6F6E300C86159 /* Images.xcassets */; };
 		0321530F18A6F6E300C86159 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321530E18A6F6E300C86159 /* XCTest.framework */; };
 		0321531018A6F6E300C86159 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 032152EF18A6F6E300C86159 /* Foundation.framework */; };
@@ -39,8 +37,15 @@
 		0321534F18A6F8CA00C86159 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534E18A6F8CA00C86159 /* MessageUI.framework */; };
 		0321535218A6FB4C00C86159 /* PLFConnectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */; };
 		0321535518A6FD2800C86159 /* PLFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535418A6FD2800C86159 /* PLFColor.m */; };
-		0321535818A7027400C86159 /* PLFColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535718A7027400C86159 /* PLFColorView.m */; };
 		0321535B18A704C600C86159 /* PLFColorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535A18A704C600C86159 /* PLFColorTableViewCell.m */; };
+		0321535E18A70D1800C86159 /* PLFSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535D18A70D1800C86159 /* PLFSettingsViewController.m */; };
+		0321536118A7139A00C86159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0321535F18A7139A00C86159 /* Localizable.strings */; };
+		0321536418A713DF00C86159 /* PLFSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321536318A713DF00C86159 /* PLFSettingTableViewCell.m */; };
+		0321536718A713F500C86159 /* PLFColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321536618A713F500C86159 /* PLFColorView.m */; };
+		0321536A18A713FC00C86159 /* PLFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321536918A713FC00C86159 /* PLFViewController.m */; };
+		0321536D18A7140500C86159 /* PLFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321536C18A7140500C86159 /* PLFAppDelegate.m */; };
+		0321537018A7170100C86159 /* NSUserDefaults+PLFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321536F18A7170100C86159 /* NSUserDefaults+PLFPreferences.m */; };
+		0321537218A7178100C86159 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0321537118A7178100C86159 /* Defaults.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,11 +67,7 @@
 		032152F918A6F6E300C86159 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		032152FB18A6F6E300C86159 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		032152FD18A6F6E300C86159 /* PebbleLIFX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PebbleLIFX-Prefix.pch"; sourceTree = "<group>"; };
-		032152FE18A6F6E300C86159 /* PLFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFAppDelegate.h; sourceTree = "<group>"; };
-		032152FF18A6F6E300C86159 /* PLFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFAppDelegate.m; sourceTree = "<group>"; };
 		0321530218A6F6E300C86159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0321530418A6F6E300C86159 /* PLFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFViewController.h; sourceTree = "<group>"; };
-		0321530518A6F6E300C86159 /* PLFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFViewController.m; sourceTree = "<group>"; };
 		0321530718A6F6E300C86159 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0321530D18A6F6E300C86159 /* PebbleLIFXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PebbleLIFXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0321530E18A6F6E300C86159 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -103,10 +104,22 @@
 		0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFConnectedTableViewCell.m; path = Classes/PLFConnectedTableViewCell.m; sourceTree = "<group>"; };
 		0321535318A6FD2800C86159 /* PLFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFColor.h; path = Classes/PLFColor.h; sourceTree = "<group>"; };
 		0321535418A6FD2800C86159 /* PLFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFColor.m; path = Classes/PLFColor.m; sourceTree = "<group>"; };
-		0321535618A7027400C86159 /* PLFColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLFColorView.h; sourceTree = "<group>"; };
-		0321535718A7027400C86159 /* PLFColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLFColorView.m; sourceTree = "<group>"; };
 		0321535918A704C600C86159 /* PLFColorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFColorTableViewCell.h; path = Classes/PLFColorTableViewCell.h; sourceTree = "<group>"; };
 		0321535A18A704C600C86159 /* PLFColorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFColorTableViewCell.m; path = Classes/PLFColorTableViewCell.m; sourceTree = "<group>"; };
+		0321535C18A70D1800C86159 /* PLFSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFSettingsViewController.h; path = Classes/PLFSettingsViewController.h; sourceTree = "<group>"; };
+		0321535D18A70D1800C86159 /* PLFSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFSettingsViewController.m; path = Classes/PLFSettingsViewController.m; sourceTree = "<group>"; };
+		0321536018A7139A00C86159 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0321536218A713DF00C86159 /* PLFSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFSettingTableViewCell.h; path = Classes/PLFSettingTableViewCell.h; sourceTree = "<group>"; };
+		0321536318A713DF00C86159 /* PLFSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFSettingTableViewCell.m; path = Classes/PLFSettingTableViewCell.m; sourceTree = "<group>"; };
+		0321536518A713F500C86159 /* PLFColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFColorView.h; path = Classes/PLFColorView.h; sourceTree = "<group>"; };
+		0321536618A713F500C86159 /* PLFColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFColorView.m; path = Classes/PLFColorView.m; sourceTree = "<group>"; };
+		0321536818A713FC00C86159 /* PLFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFViewController.h; path = Classes/PLFViewController.h; sourceTree = "<group>"; };
+		0321536918A713FC00C86159 /* PLFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFViewController.m; path = Classes/PLFViewController.m; sourceTree = "<group>"; };
+		0321536B18A7140500C86159 /* PLFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFAppDelegate.h; path = Classes/PLFAppDelegate.h; sourceTree = "<group>"; };
+		0321536C18A7140500C86159 /* PLFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFAppDelegate.m; path = Classes/PLFAppDelegate.m; sourceTree = "<group>"; };
+		0321536E18A7170100C86159 /* NSUserDefaults+PLFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+PLFPreferences.h"; path = "Categories/NSUserDefaults+PLFPreferences.h"; sourceTree = "<group>"; };
+		0321536F18A7170100C86159 /* NSUserDefaults+PLFPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+PLFPreferences.m"; path = "Categories/NSUserDefaults+PLFPreferences.m"; sourceTree = "<group>"; };
+		0321537118A7178100C86159 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,19 +194,25 @@
 			isa = PBXGroup;
 			children = (
 				0321532418A6F82700C86159 /* External */,
-				032152FE18A6F6E300C86159 /* PLFAppDelegate.h */,
-				032152FF18A6F6E300C86159 /* PLFAppDelegate.m */,
 				0321530118A6F6E300C86159 /* Main.storyboard */,
-				0321530418A6F6E300C86159 /* PLFViewController.h */,
-				0321530518A6F6E300C86159 /* PLFViewController.m */,
+				0321536B18A7140500C86159 /* PLFAppDelegate.h */,
+				0321536C18A7140500C86159 /* PLFAppDelegate.m */,
+				0321536818A713FC00C86159 /* PLFViewController.h */,
+				0321536918A713FC00C86159 /* PLFViewController.m */,
 				0321535018A6FB4C00C86159 /* PLFConnectedTableViewCell.h */,
 				0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */,
 				0321535318A6FD2800C86159 /* PLFColor.h */,
 				0321535418A6FD2800C86159 /* PLFColor.m */,
-				0321535618A7027400C86159 /* PLFColorView.h */,
-				0321535718A7027400C86159 /* PLFColorView.m */,
+				0321536518A713F500C86159 /* PLFColorView.h */,
+				0321536618A713F500C86159 /* PLFColorView.m */,
 				0321535918A704C600C86159 /* PLFColorTableViewCell.h */,
 				0321535A18A704C600C86159 /* PLFColorTableViewCell.m */,
+				0321535C18A70D1800C86159 /* PLFSettingsViewController.h */,
+				0321535D18A70D1800C86159 /* PLFSettingsViewController.m */,
+				0321536218A713DF00C86159 /* PLFSettingTableViewCell.h */,
+				0321536318A713DF00C86159 /* PLFSettingTableViewCell.m */,
+				0321536E18A7170100C86159 /* NSUserDefaults+PLFPreferences.h */,
+				0321536F18A7170100C86159 /* NSUserDefaults+PLFPreferences.m */,
 				0321530718A6F6E300C86159 /* Images.xcassets */,
 				032152F618A6F6E300C86159 /* Supporting Files */,
 			);
@@ -207,6 +226,8 @@
 				032152F818A6F6E300C86159 /* InfoPlist.strings */,
 				032152FB18A6F6E300C86159 /* main.m */,
 				032152FD18A6F6E300C86159 /* PebbleLIFX-Prefix.pch */,
+				0321535F18A7139A00C86159 /* Localizable.strings */,
+				0321537118A7178100C86159 /* Defaults.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -342,6 +363,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0321530818A6F6E300C86159 /* Images.xcassets in Resources */,
+				0321536118A7139A00C86159 /* Localizable.strings in Resources */,
+				0321537218A7178100C86159 /* Defaults.plist in Resources */,
 				032152FA18A6F6E300C86159 /* InfoPlist.strings in Resources */,
 				0321530318A6F6E300C86159 /* Main.storyboard in Resources */,
 			);
@@ -364,20 +387,23 @@
 			files = (
 				0321535218A6FB4C00C86159 /* PLFConnectedTableViewCell.m in Sources */,
 				0321533918A6F84600C86159 /* AFHTTPRequestOperation.m in Sources */,
-				0321530618A6F6E300C86159 /* PLFViewController.m in Sources */,
 				0321533A18A6F84600C86159 /* AFHTTPRequestOperationManager.m in Sources */,
 				0321533C18A6F84600C86159 /* AFNetworkReachabilityManager.m in Sources */,
+				0321537018A7170100C86159 /* NSUserDefaults+PLFPreferences.m in Sources */,
 				0321534018A6F84600C86159 /* AFURLResponseSerialization.m in Sources */,
 				0321535B18A704C600C86159 /* PLFColorTableViewCell.m in Sources */,
+				0321536718A713F500C86159 /* PLFColorView.m in Sources */,
+				0321536418A713DF00C86159 /* PLFSettingTableViewCell.m in Sources */,
+				0321535E18A70D1800C86159 /* PLFSettingsViewController.m in Sources */,
 				0321533E18A6F84600C86159 /* AFURLConnectionOperation.m in Sources */,
 				0321533D18A6F84600C86159 /* AFSecurityPolicy.m in Sources */,
 				0321535518A6FD2800C86159 /* PLFColor.m in Sources */,
 				0321533B18A6F84600C86159 /* AFHTTPSessionManager.m in Sources */,
+				0321536D18A7140500C86159 /* PLFAppDelegate.m in Sources */,
 				0321533F18A6F84600C86159 /* AFURLRequestSerialization.m in Sources */,
 				0321534118A6F84600C86159 /* AFURLSessionManager.m in Sources */,
+				0321536A18A713FC00C86159 /* PLFViewController.m in Sources */,
 				032152FC18A6F6E300C86159 /* main.m in Sources */,
-				0321535818A7027400C86159 /* PLFColorView.m in Sources */,
-				0321530018A6F6E300C86159 /* PLFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +448,14 @@
 				0321531818A6F6E300C86159 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0321535F18A7139A00C86159 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0321536018A7139A00C86159 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

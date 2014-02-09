@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  PebbleLIFX
+
+  Created by Indragie Karunaratne on 2/8/2014.
+  Copyright (c) 2014 Indragie Karunaratne. All rights reserved.
+*/
+
+"No Pebble Connected" = "No Pebble Connected";
+"Pebble" = "Pebble";
+"Bulbs" = "Bulbs";
+"Server Address" = "Server Address";
+"Server Description" = "Set the address of the node server here to fetch bulb information and send commmands.";

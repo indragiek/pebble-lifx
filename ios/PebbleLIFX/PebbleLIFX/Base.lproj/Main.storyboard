@@ -52,10 +52,78 @@
                             <outlet property="delegate" destination="UJA-gR-Fux" id="9ox-Qm-X1h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Pebble + LIFX" id="PbC-pI-EAx"/>
+                    <navigationItem key="navigationItem" title="Pebble + LIFX" id="PbC-pI-EAx">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="a62-XT-QO0">
+                            <connections>
+                                <segue destination="fLy-U8-h4R" kind="modal" id="GXp-ed-QcO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zxr-p9-dE5"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71R-i4-Ae6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="451" y="-88"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="nVA-ZH-0yq">
+            <objects>
+                <tableViewController id="dhK-IT-uNb" customClass="PLFSettingsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gpf-sw-SAl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" id="vq4-KL-o0M" customClass="PLFSettingTableViewCell">
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vq4-KL-o0M" id="coF-B6-4PF">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXk-v9-mmK">
+                                            <rect key="frame" x="20" y="7" width="287" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="dhK-IT-uNb" id="DxX-ds-dYa"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="NXk-v9-mmK" id="bpc-c2-Nub"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dhK-IT-uNb" id="3Qm-3T-PIh"/>
+                            <outlet property="delegate" destination="dhK-IT-uNb" id="0rX-6k-7pT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="aQJ-ae-wod">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Hqo-Ah-bys"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8br-4h-tcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-260" y="-321"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4se-ie-nFD">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="fLy-U8-h4R" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgJ-zg-tcU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dhK-IT-uNb" kind="relationship" relationship="rootViewController" id="3n4-nV-oV5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBi-GB-dNz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-630" y="-321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I1s-yR-K5i">
@@ -70,6 +138,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKQ-gB-L1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="822" y="-88"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

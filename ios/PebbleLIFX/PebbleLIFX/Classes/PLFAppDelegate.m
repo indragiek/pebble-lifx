@@ -12,7 +12,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSString *defaultsPath = [NSBundle.mainBundle pathForResource:@"Defaults" ofType:@"plist"];
+	NSDictionary *defaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPath];
+	[NSUserDefaults.standardUserDefaults registerDefaults:defaults];
     return YES;
 }
 							
