@@ -10,12 +10,13 @@
 #import "PLFConnectedTableViewCell.h"
 #import "PLFColorTableViewCell.h"
 #import "PLFColor.h"
+#import "PLFColorPickerViewController.h"
 #import <PebbleKit/PebbleKit.h>
 
 static NSInteger const PLFPebbleSectionIndex = 0;
 static NSInteger const PLFColorsSectionIndex = 1;
 
-@interface PLFViewController () <PBWatchDelegate>
+@interface PLFViewController () <PBWatchDelegate, PLFColorPickerViewControllerDelegate>
 @property (nonatomic, strong, readonly) NSMutableArray *colors;
 @property (nonatomic, strong) PBWatch *connectedWatch;
 @end
@@ -110,4 +111,26 @@ static NSInteger const PLFColorsSectionIndex = 1;
 	}
 }
 
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"PickColor"]) {
+		UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+		PLFColorPickerViewController *controller = (PLFColorPickerViewController *)navController.topViewController;
+		controller.delegate = self;
+	}
+}
+
+#pragma mark - PLFColorPickerViewControllerDelegate
+
+- (void)colorPicker:(PLFColorPickerViewController *)picker didPickColor:(UIColor *)color withLabel:(NSString *)label
+{
+	NSLog(@"%@ %@", color, label);
+}
+
+- (void)colorPicker:(PLFColorPickerViewController *)picker didSelectColor:(UIColor *)color
+{
+	
+}
 @end

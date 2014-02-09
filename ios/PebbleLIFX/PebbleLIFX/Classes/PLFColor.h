@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 
-@interface PLFColor : NSObject <NSCoding>
+@interface PLFColor : MTLModel
 @property (nonatomic, copy, readonly) NSString *label;
 @property (nonatomic, strong, readonly) UIColor *color;
 + (instancetype)colorWithLabel:(NSString *)label color:(UIColor *)color;

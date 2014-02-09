@@ -21,7 +21,6 @@ NSString * const PLFColorTableViewCellIdentifier = @"ColorCell";
 
 - (void)commonInitForPLFColorTableViewCell
 {
-	self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

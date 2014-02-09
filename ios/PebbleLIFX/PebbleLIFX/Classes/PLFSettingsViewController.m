@@ -17,15 +17,7 @@
 
 #pragma mark - View Controller Lifecycle
 
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-	UIBarButtonItem *done = self.navigationItem.rightBarButtonItem;
-	done.target = self;
-	done.action = @selector(dismiss);
-}
-
-- (void)dismiss
+- (IBAction)dismiss:(id)sender
 {
 	[self dismissViewControllerAnimated:YES completion:nil];
 }

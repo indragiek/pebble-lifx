@@ -46,6 +46,27 @@
 		0321536D18A7140500C86159 /* PLFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321536C18A7140500C86159 /* PLFAppDelegate.m */; };
 		0321537018A7170100C86159 /* NSUserDefaults+PLFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321536F18A7170100C86159 /* NSUserDefaults+PLFPreferences.m */; };
 		0321537218A7178100C86159 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0321537118A7178100C86159 /* Defaults.plist */; };
+		0321538718A7199A00C86159 /* libMantle-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321538218A7197900C86159 /* libMantle-iOS.a */; };
+		0321538C18A71BFD00C86159 /* LIFXSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321538B18A71BFD00C86159 /* LIFXSessionManager.m */; };
+		03976ED618A71E34008FE84C /* PLFColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976ED518A71E33008FE84C /* PLFColorPickerViewController.m */; };
+		03976F0118A71F87008FE84C /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EDB18A71F87008FE84C /* ANImageBitmapRep.m */; };
+		03976F0218A71F87008FE84C /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EDD18A71F87008FE84C /* BitmapContextRep.m */; };
+		03976F0318A71F87008FE84C /* NSImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EE018A71F87008FE84C /* NSImage+ANImageBitmapRep.m */; };
+		03976F0418A71F87008FE84C /* OSCommonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EE218A71F87008FE84C /* OSCommonImage.m */; };
+		03976F0518A71F87008FE84C /* UIImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EE418A71F87008FE84C /* UIImage+ANImageBitmapRep.m */; };
+		03976F0618A71F87008FE84C /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EE718A71F87008FE84C /* CGContextCreator.m */; };
+		03976F0718A71F87008FE84C /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EE918A71F87008FE84C /* CGImageContainer.m */; };
+		03976F0818A71F87008FE84C /* BitmapContextManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EEC18A71F87008FE84C /* BitmapContextManipulator.m */; };
+		03976F0918A71F87008FE84C /* BitmapCropManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EEE18A71F87008FE84C /* BitmapCropManipulator.m */; };
+		03976F0A18A71F87008FE84C /* BitmapDrawManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EF018A71F87008FE84C /* BitmapDrawManipulator.m */; };
+		03976F0B18A71F87008FE84C /* BitmapRotationManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EF218A71F87008FE84C /* BitmapRotationManipulator.m */; };
+		03976F0C18A71F87008FE84C /* BitmapScaleManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EF418A71F87008FE84C /* BitmapScaleManipulator.m */; };
+		03976F0D18A71F87008FE84C /* BGRSLoupeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EF618A71F87008FE84C /* BGRSLoupeLayer.m */; };
+		03976F0E18A71F87008FE84C /* RSColorFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EF818A71F87008FE84C /* RSColorFunctions.m */; };
+		03976F0F18A71F87008FE84C /* RSColorPickerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EFA18A71F87008FE84C /* RSColorPickerState.m */; };
+		03976F1018A71F87008FE84C /* RSColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EFC18A71F87008FE84C /* RSColorPickerView.m */; };
+		03976F1118A71F87008FE84C /* RSGenerateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976EFE18A71F87008FE84C /* RSGenerateOperation.m */; };
+		03976F1218A71F87008FE84C /* RSSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03976F0018A71F87008FE84C /* RSSelectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +76,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = 032152EB18A6F6E300C86159;
 			remoteInfo = PebbleLIFX;
+		};
+		0321537D18A7197900C86159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0321537318A7197900C86159 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC3C15F72B23004E8054;
+			remoteInfo = Mantle;
+		};
+		0321537F18A7197900C86159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0321537318A7197900C86159 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC5415F72B23004E8054;
+			remoteInfo = "Mantle Tests";
+		};
+		0321538118A7197900C86159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0321537318A7197900C86159 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC7915F72BC7004E8054;
+			remoteInfo = "Mantle-iOS";
+		};
+		0321538318A7197900C86159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0321537318A7197900C86159 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D042FC8715F72BC7004E8054;
+			remoteInfo = "Mantle-iOS Tests";
+		};
+		0321538518A7197900C86159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0321537318A7197900C86159 /* Mantle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D0A56B461804B04900A84EDC;
+			remoteInfo = "Mantle-Mac";
+		};
+		0321538818A71B4800C86159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0321537318A7197900C86159 /* Mantle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D042FC7815F72BC7004E8054;
+			remoteInfo = "Mantle-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -120,6 +183,47 @@
 		0321536E18A7170100C86159 /* NSUserDefaults+PLFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSUserDefaults+PLFPreferences.h"; path = "Categories/NSUserDefaults+PLFPreferences.h"; sourceTree = "<group>"; };
 		0321536F18A7170100C86159 /* NSUserDefaults+PLFPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSUserDefaults+PLFPreferences.m"; path = "Categories/NSUserDefaults+PLFPreferences.m"; sourceTree = "<group>"; };
 		0321537118A7178100C86159 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		0321537318A7197900C86159 /* Mantle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Mantle.xcodeproj; path = External/Mantle/Mantle.xcodeproj; sourceTree = SOURCE_ROOT; };
+		0321538A18A71BFD00C86159 /* LIFXSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LIFXSessionManager.h; path = Classes/LIFXSessionManager.h; sourceTree = "<group>"; };
+		0321538B18A71BFD00C86159 /* LIFXSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LIFXSessionManager.m; path = Classes/LIFXSessionManager.m; sourceTree = "<group>"; };
+		03976ED418A71E33008FE84C /* PLFColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFColorPickerViewController.h; path = Classes/PLFColorPickerViewController.h; sourceTree = "<group>"; };
+		03976ED518A71E33008FE84C /* PLFColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFColorPickerViewController.m; path = Classes/PLFColorPickerViewController.m; sourceTree = "<group>"; };
+		03976EDA18A71F87008FE84C /* ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANImageBitmapRep.h; sourceTree = "<group>"; };
+		03976EDB18A71F87008FE84C /* ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANImageBitmapRep.m; sourceTree = "<group>"; };
+		03976EDC18A71F87008FE84C /* BitmapContextRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapContextRep.h; sourceTree = "<group>"; };
+		03976EDD18A71F87008FE84C /* BitmapContextRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapContextRep.m; sourceTree = "<group>"; };
+		03976EDF18A71F87008FE84C /* NSImage+ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+ANImageBitmapRep.h"; sourceTree = "<group>"; };
+		03976EE018A71F87008FE84C /* NSImage+ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+ANImageBitmapRep.m"; sourceTree = "<group>"; };
+		03976EE118A71F87008FE84C /* OSCommonImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCommonImage.h; sourceTree = "<group>"; };
+		03976EE218A71F87008FE84C /* OSCommonImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCommonImage.m; sourceTree = "<group>"; };
+		03976EE318A71F87008FE84C /* UIImage+ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ANImageBitmapRep.h"; sourceTree = "<group>"; };
+		03976EE418A71F87008FE84C /* UIImage+ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ANImageBitmapRep.m"; sourceTree = "<group>"; };
+		03976EE618A71F87008FE84C /* CGContextCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGContextCreator.h; sourceTree = "<group>"; };
+		03976EE718A71F87008FE84C /* CGContextCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGContextCreator.m; sourceTree = "<group>"; };
+		03976EE818A71F87008FE84C /* CGImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGImageContainer.h; sourceTree = "<group>"; };
+		03976EE918A71F87008FE84C /* CGImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGImageContainer.m; sourceTree = "<group>"; };
+		03976EEB18A71F87008FE84C /* BitmapContextManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapContextManipulator.h; sourceTree = "<group>"; };
+		03976EEC18A71F87008FE84C /* BitmapContextManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapContextManipulator.m; sourceTree = "<group>"; };
+		03976EED18A71F87008FE84C /* BitmapCropManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapCropManipulator.h; sourceTree = "<group>"; };
+		03976EEE18A71F87008FE84C /* BitmapCropManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapCropManipulator.m; sourceTree = "<group>"; };
+		03976EEF18A71F87008FE84C /* BitmapDrawManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapDrawManipulator.h; sourceTree = "<group>"; };
+		03976EF018A71F87008FE84C /* BitmapDrawManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapDrawManipulator.m; sourceTree = "<group>"; };
+		03976EF118A71F87008FE84C /* BitmapRotationManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapRotationManipulator.h; sourceTree = "<group>"; };
+		03976EF218A71F87008FE84C /* BitmapRotationManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapRotationManipulator.m; sourceTree = "<group>"; };
+		03976EF318A71F87008FE84C /* BitmapScaleManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapScaleManipulator.h; sourceTree = "<group>"; };
+		03976EF418A71F87008FE84C /* BitmapScaleManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapScaleManipulator.m; sourceTree = "<group>"; };
+		03976EF518A71F87008FE84C /* BGRSLoupeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGRSLoupeLayer.h; sourceTree = "<group>"; };
+		03976EF618A71F87008FE84C /* BGRSLoupeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGRSLoupeLayer.m; sourceTree = "<group>"; };
+		03976EF718A71F87008FE84C /* RSColorFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSColorFunctions.h; sourceTree = "<group>"; };
+		03976EF818A71F87008FE84C /* RSColorFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSColorFunctions.m; sourceTree = "<group>"; };
+		03976EF918A71F87008FE84C /* RSColorPickerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSColorPickerState.h; sourceTree = "<group>"; };
+		03976EFA18A71F87008FE84C /* RSColorPickerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSColorPickerState.m; sourceTree = "<group>"; };
+		03976EFB18A71F87008FE84C /* RSColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSColorPickerView.h; sourceTree = "<group>"; };
+		03976EFC18A71F87008FE84C /* RSColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSColorPickerView.m; sourceTree = "<group>"; };
+		03976EFD18A71F87008FE84C /* RSGenerateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSGenerateOperation.h; sourceTree = "<group>"; };
+		03976EFE18A71F87008FE84C /* RSGenerateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGenerateOperation.m; sourceTree = "<group>"; };
+		03976EFF18A71F87008FE84C /* RSSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSelectionView.h; sourceTree = "<group>"; };
+		03976F0018A71F87008FE84C /* RSSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSelectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0321538718A7199A00C86159 /* libMantle-iOS.a in Frameworks */,
 				0321534F18A6F8CA00C86159 /* MessageUI.framework in Frameworks */,
 				0321534D18A6F8C500C86159 /* CoreMotion.framework in Frameworks */,
 				0321534B18A6F8BC00C86159 /* CoreBluetooth.framework in Frameworks */,
@@ -213,6 +318,10 @@
 				0321536318A713DF00C86159 /* PLFSettingTableViewCell.m */,
 				0321536E18A7170100C86159 /* NSUserDefaults+PLFPreferences.h */,
 				0321536F18A7170100C86159 /* NSUserDefaults+PLFPreferences.m */,
+				0321538A18A71BFD00C86159 /* LIFXSessionManager.h */,
+				0321538B18A71BFD00C86159 /* LIFXSessionManager.m */,
+				03976ED418A71E33008FE84C /* PLFColorPickerViewController.h */,
+				03976ED518A71E33008FE84C /* PLFColorPickerViewController.m */,
 				0321530718A6F6E300C86159 /* Images.xcassets */,
 				032152F618A6F6E300C86159 /* Supporting Files */,
 			);
@@ -253,6 +362,8 @@
 		0321532418A6F82700C86159 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				03976ED818A71F87008FE84C /* RSColorPicker */,
+				0321537318A7197900C86159 /* Mantle.xcodeproj */,
 				0321532518A6F84600C86159 /* AFNetworking */,
 			);
 			name = External;
@@ -285,6 +396,94 @@
 			path = External/AFNetworking/AFNetworking;
 			sourceTree = SOURCE_ROOT;
 		};
+		0321537418A7197900C86159 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0321537E18A7197900C86159 /* Mantle.framework */,
+				0321538018A7197900C86159 /* Mantle Tests.octest */,
+				0321538218A7197900C86159 /* libMantle-iOS.a */,
+				0321538418A7197900C86159 /* Mantle-iOS Tests.octest */,
+				0321538618A7197900C86159 /* libMantle-Mac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03976ED818A71F87008FE84C /* RSColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				03976ED918A71F87008FE84C /* ANImageBitmapRep */,
+				03976EF518A71F87008FE84C /* BGRSLoupeLayer.h */,
+				03976EF618A71F87008FE84C /* BGRSLoupeLayer.m */,
+				03976EF718A71F87008FE84C /* RSColorFunctions.h */,
+				03976EF818A71F87008FE84C /* RSColorFunctions.m */,
+				03976EF918A71F87008FE84C /* RSColorPickerState.h */,
+				03976EFA18A71F87008FE84C /* RSColorPickerState.m */,
+				03976EFB18A71F87008FE84C /* RSColorPickerView.h */,
+				03976EFC18A71F87008FE84C /* RSColorPickerView.m */,
+				03976EFD18A71F87008FE84C /* RSGenerateOperation.h */,
+				03976EFE18A71F87008FE84C /* RSGenerateOperation.m */,
+				03976EFF18A71F87008FE84C /* RSSelectionView.h */,
+				03976F0018A71F87008FE84C /* RSSelectionView.m */,
+			);
+			name = RSColorPicker;
+			path = External/RSColorPicker/RSColorPicker/ColorPickerClasses;
+			sourceTree = SOURCE_ROOT;
+		};
+		03976ED918A71F87008FE84C /* ANImageBitmapRep */ = {
+			isa = PBXGroup;
+			children = (
+				03976EDA18A71F87008FE84C /* ANImageBitmapRep.h */,
+				03976EDB18A71F87008FE84C /* ANImageBitmapRep.m */,
+				03976EDC18A71F87008FE84C /* BitmapContextRep.h */,
+				03976EDD18A71F87008FE84C /* BitmapContextRep.m */,
+				03976EDE18A71F87008FE84C /* Compatibility */,
+				03976EE518A71F87008FE84C /* CoreGraphics */,
+				03976EEA18A71F87008FE84C /* Manipulators */,
+			);
+			path = ANImageBitmapRep;
+			sourceTree = "<group>";
+		};
+		03976EDE18A71F87008FE84C /* Compatibility */ = {
+			isa = PBXGroup;
+			children = (
+				03976EDF18A71F87008FE84C /* NSImage+ANImageBitmapRep.h */,
+				03976EE018A71F87008FE84C /* NSImage+ANImageBitmapRep.m */,
+				03976EE118A71F87008FE84C /* OSCommonImage.h */,
+				03976EE218A71F87008FE84C /* OSCommonImage.m */,
+				03976EE318A71F87008FE84C /* UIImage+ANImageBitmapRep.h */,
+				03976EE418A71F87008FE84C /* UIImage+ANImageBitmapRep.m */,
+			);
+			path = Compatibility;
+			sourceTree = "<group>";
+		};
+		03976EE518A71F87008FE84C /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				03976EE618A71F87008FE84C /* CGContextCreator.h */,
+				03976EE718A71F87008FE84C /* CGContextCreator.m */,
+				03976EE818A71F87008FE84C /* CGImageContainer.h */,
+				03976EE918A71F87008FE84C /* CGImageContainer.m */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		03976EEA18A71F87008FE84C /* Manipulators */ = {
+			isa = PBXGroup;
+			children = (
+				03976EEB18A71F87008FE84C /* BitmapContextManipulator.h */,
+				03976EEC18A71F87008FE84C /* BitmapContextManipulator.m */,
+				03976EED18A71F87008FE84C /* BitmapCropManipulator.h */,
+				03976EEE18A71F87008FE84C /* BitmapCropManipulator.m */,
+				03976EEF18A71F87008FE84C /* BitmapDrawManipulator.h */,
+				03976EF018A71F87008FE84C /* BitmapDrawManipulator.m */,
+				03976EF118A71F87008FE84C /* BitmapRotationManipulator.h */,
+				03976EF218A71F87008FE84C /* BitmapRotationManipulator.m */,
+				03976EF318A71F87008FE84C /* BitmapScaleManipulator.h */,
+				03976EF418A71F87008FE84C /* BitmapScaleManipulator.m */,
+			);
+			path = Manipulators;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -299,6 +498,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0321538918A71B4800C86159 /* PBXTargetDependency */,
 			);
 			name = PebbleLIFX;
 			productName = PebbleLIFX;
@@ -349,6 +549,12 @@
 			mainGroup = 032152E318A6F6E300C86159;
 			productRefGroup = 032152ED18A6F6E300C86159 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0321537418A7197900C86159 /* Products */;
+					ProjectRef = 0321537318A7197900C86159 /* Mantle.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				032152EB18A6F6E300C86159 /* PebbleLIFX */,
@@ -356,6 +562,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0321537E18A7197900C86159 /* Mantle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mantle.framework;
+			remoteRef = 0321537D18A7197900C86159 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0321538018A7197900C86159 /* Mantle Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mantle Tests.octest";
+			remoteRef = 0321537F18A7197900C86159 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0321538218A7197900C86159 /* libMantle-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libMantle-iOS.a";
+			remoteRef = 0321538118A7197900C86159 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0321538418A7197900C86159 /* Mantle-iOS Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Mantle-iOS Tests.octest";
+			remoteRef = 0321538318A7197900C86159 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0321538618A7197900C86159 /* libMantle-Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libMantle-Mac.a";
+			remoteRef = 0321538518A7197900C86159 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		032152EA18A6F6E300C86159 /* Resources */ = {
@@ -385,25 +629,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03976F0218A71F87008FE84C /* BitmapContextRep.m in Sources */,
 				0321535218A6FB4C00C86159 /* PLFConnectedTableViewCell.m in Sources */,
+				03976F0318A71F87008FE84C /* NSImage+ANImageBitmapRep.m in Sources */,
+				03976F0118A71F87008FE84C /* ANImageBitmapRep.m in Sources */,
 				0321533918A6F84600C86159 /* AFHTTPRequestOperation.m in Sources */,
 				0321533A18A6F84600C86159 /* AFHTTPRequestOperationManager.m in Sources */,
 				0321533C18A6F84600C86159 /* AFNetworkReachabilityManager.m in Sources */,
+				03976F0618A71F87008FE84C /* CGContextCreator.m in Sources */,
+				03976F0C18A71F87008FE84C /* BitmapScaleManipulator.m in Sources */,
 				0321537018A7170100C86159 /* NSUserDefaults+PLFPreferences.m in Sources */,
+				03976F0F18A71F87008FE84C /* RSColorPickerState.m in Sources */,
+				03976F0A18A71F87008FE84C /* BitmapDrawManipulator.m in Sources */,
 				0321534018A6F84600C86159 /* AFURLResponseSerialization.m in Sources */,
 				0321535B18A704C600C86159 /* PLFColorTableViewCell.m in Sources */,
+				03976F0E18A71F87008FE84C /* RSColorFunctions.m in Sources */,
 				0321536718A713F500C86159 /* PLFColorView.m in Sources */,
+				03976F0518A71F87008FE84C /* UIImage+ANImageBitmapRep.m in Sources */,
 				0321536418A713DF00C86159 /* PLFSettingTableViewCell.m in Sources */,
+				03976F0B18A71F87008FE84C /* BitmapRotationManipulator.m in Sources */,
+				03976F1118A71F87008FE84C /* RSGenerateOperation.m in Sources */,
 				0321535E18A70D1800C86159 /* PLFSettingsViewController.m in Sources */,
 				0321533E18A6F84600C86159 /* AFURLConnectionOperation.m in Sources */,
 				0321533D18A6F84600C86159 /* AFSecurityPolicy.m in Sources */,
 				0321535518A6FD2800C86159 /* PLFColor.m in Sources */,
+				03976ED618A71E34008FE84C /* PLFColorPickerViewController.m in Sources */,
+				03976F0918A71F87008FE84C /* BitmapCropManipulator.m in Sources */,
+				03976F1218A71F87008FE84C /* RSSelectionView.m in Sources */,
+				03976F0418A71F87008FE84C /* OSCommonImage.m in Sources */,
+				0321538C18A71BFD00C86159 /* LIFXSessionManager.m in Sources */,
 				0321533B18A6F84600C86159 /* AFHTTPSessionManager.m in Sources */,
 				0321536D18A7140500C86159 /* PLFAppDelegate.m in Sources */,
 				0321533F18A6F84600C86159 /* AFURLRequestSerialization.m in Sources */,
+				03976F0818A71F87008FE84C /* BitmapContextManipulator.m in Sources */,
 				0321534118A6F84600C86159 /* AFURLSessionManager.m in Sources */,
+				03976F1018A71F87008FE84C /* RSColorPickerView.m in Sources */,
+				03976F0718A71F87008FE84C /* CGImageContainer.m in Sources */,
 				0321536A18A713FC00C86159 /* PLFViewController.m in Sources */,
 				032152FC18A6F6E300C86159 /* main.m in Sources */,
+				03976F0D18A71F87008FE84C /* BGRSLoupeLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +686,11 @@
 			isa = PBXTargetDependency;
 			target = 032152EB18A6F6E300C86159 /* PebbleLIFX */;
 			targetProxy = 0321531218A6F6E300C86159 /* PBXContainerItemProxy */;
+		};
+		0321538918A71B4800C86159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mantle-iOS";
+			targetProxy = 0321538818A71B4800C86159 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -542,6 +811,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleLIFX/PebbleLIFX-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode51-Beta5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include\"",
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = "PebbleLIFX/PebbleLIFX-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -560,6 +836,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebbleLIFX/PebbleLIFX-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode51-Beta5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"\"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include\"",
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				INFOPLIST_FILE = "PebbleLIFX/PebbleLIFX-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -626,6 +909,7 @@
 				0321532018A6F6E300C86159 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0321532118A6F6E300C86159 /* Build configuration list for PBXNativeTarget "PebbleLIFXTests" */ = {
 			isa = XCConfigurationList;
@@ -634,6 +918,7 @@
 				0321532318A6F6E300C86159 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

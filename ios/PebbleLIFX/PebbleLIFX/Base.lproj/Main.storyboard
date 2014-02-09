@@ -58,7 +58,11 @@
                                 <segue destination="fLy-U8-h4R" kind="modal" id="GXp-ed-QcO"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zxr-p9-dE5"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zxr-p9-dE5">
+                            <connections>
+                                <segue destination="BiS-qJ-c7U" kind="modal" identifier="PickColor" id="aHE-08-Rmw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71R-i4-Ae6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,17 +107,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="aQJ-ae-wod">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Hqo-Ah-bys"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Hqo-Ah-bys">
+                            <connections>
+                                <action selector="dismiss:" destination="dhK-IT-uNb" id="ykW-z1-YV1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8br-4h-tcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-260" y="-321"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings Navigation Controller-->
         <scene sceneID="4se-ie-nFD">
             <objects>
-                <navigationController definesPresentationContext="YES" id="fLy-U8-h4R" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="fLy-U8-h4R" userLabel="Settings Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bgJ-zg-tcU">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -125,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="-630" y="-321"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="I1s-yR-K5i">
             <objects>
-                <navigationController definesPresentationContext="YES" id="NL9-ZW-bja" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="NL9-ZW-bja" userLabel="Main Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5vg-n1-sgS">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -139,6 +147,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKQ-gB-L1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="822" y="-88"/>
+        </scene>
+        <!--Color Picker Navigation Controller-->
+        <scene sceneID="MSY-TL-q2I">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="BiS-qJ-c7U" userLabel="Color Picker Navigation Controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Haf-xN-LZe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6mL-F0-IPV" kind="relationship" relationship="rootViewController" id="kjJ-8h-r6B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSr-g3-dCa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Color Picker View Controller - Pick Color-->
+        <scene sceneID="dPV-Za-Iyu">
+            <objects>
+                <viewController id="6mL-F0-IPV" customClass="PLFColorPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NeY-oV-ukh"/>
+                        <viewControllerLayoutGuide type="bottom" id="TNF-oZ-7Ti"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kof-OG-CFO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCz-zv-jEu" customClass="RSColorPickerView">
+                                <rect key="frame" x="20" y="179" width="280" height="280"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZI3-XK-oex" customClass="PLFColorView">
+                                <rect key="frame" x="20" y="97" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Color Label" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EhB-gC-9BA">
+                                <rect key="frame" x="89" y="107" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6mL-F0-IPV" id="Ezc-SB-7h7"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pick Color" id="SJD-qc-h1N">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="ZQ7-oc-kDy">
+                            <connections>
+                                <action selector="pickColor:" destination="6mL-F0-IPV" id="tQB-2d-EXq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="colorPickerView" destination="WCz-zv-jEu" id="wvf-7l-GGZ"/>
+                        <outlet property="colorView" destination="ZI3-XK-oex" id="TcL-B7-CuS"/>
+                        <outlet property="labelField" destination="EhB-gC-9BA" id="F8F-er-3YX"/>
+                        <outlet property="view" destination="kof-OG-CFO" id="zsE-cR-qQl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJA-vd-Gns" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

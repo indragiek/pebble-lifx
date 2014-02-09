@@ -18,4 +18,12 @@
 	UIRectFill(self.bounds);
 }
 
+- (void)setColor:(UIColor *)color
+{
+	if (_color != color) {
+		_color = color;
+		[self setNeedsDisplay];
+	}
+}
+
 @end

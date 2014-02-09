@@ -5,3 +5,6 @@
 [submodule "ios/PebbleLIFX/External/RSColorPicker"]
 	path = ios/PebbleLIFX/External/RSColorPicker
 	url = git@github.com:RSully/RSColorPicker.git
+[submodule "ios/PebbleLIFX/External/Mantle"]
+	path = ios/PebbleLIFX/External/Mantle
+	url = git@github.com:MantleFramework/Mantle.git

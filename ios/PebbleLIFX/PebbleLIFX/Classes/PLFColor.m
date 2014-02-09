@@ -25,28 +25,4 @@
 	return colorModel;
 }
 
-#pragma mark - NSObject
-
-- (NSString *)description
-{
-	return [NSString stringWithFormat:@"<%@:%p label:%@ color:%@>", NSStringFromClass(self.class), self, self.label, self.color];
-}
-
-#pragma mark - NSCoding
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-	if ((self = [super init])) {
-		self.label = [aDecoder decodeObjectForKey:@"label"];
-		self.color = [aDecoder decodeObjectForKey:@"color"];
-	}
-	return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-	[aCoder encodeObject:self.label forKey:@"label"];
-	[aCoder encodeObject:self.color forKey:@"color"];
-}
-
 @end

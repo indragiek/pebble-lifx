@@ -7,14 +7,23 @@
 //
 
 #import "PLFAppDelegate.h"
+#import "LIFXSessionManager.h"
 
-@implementation PLFAppDelegate
+@implementation PLFAppDelegate {
+	LIFXSessionManager *_sessionManager;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSString *defaultsPath = [NSBundle.mainBundle pathForResource:@"Defaults" ofType:@"plist"];
 	NSDictionary *defaults = [NSDictionary dictionaryWithContentsOfFile:defaultsPath];
 	[NSUserDefaults.standardUserDefaults registerDefaults:defaults];
+	_sessionManager = [LIFXSessionManager new];
+	[_sessionManager getBulbStubsWithSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+		NSLog(@"%@", responseObject);
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
+		NSLog(@"%@", error);
+	}];
     return YES;
 }
 							
