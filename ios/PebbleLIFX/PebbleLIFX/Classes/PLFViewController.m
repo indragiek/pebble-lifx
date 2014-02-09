@@ -141,6 +141,14 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 	return self.bulbStates;
 }
 
+- (void)appMessageHandler:(PLFPebbleAppMessageHandler *)handler setOn:(BOOL)on forBulbAtIndex:(NSUInteger)index
+{
+	LIFXBulbState *state = self.bulbStates[index];
+	[self.lifxManager setOn:on forBulb:state.bulb withSuccess:nil failure:^(NSURLSessionDataTask *task, NSError *error) {
+		NSLog(@"%@", error);
+	}];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

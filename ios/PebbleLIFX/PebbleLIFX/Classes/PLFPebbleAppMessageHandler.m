@@ -87,6 +87,8 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 	NSString *method = update[@(APPMSG_METHOD_KEY)];
 	if ([method isEqualToString:@(APPMSG_METHOD_GET_BULBS)]) {
 		[self handleBulbRequest];
+	} else if ([method isEqualToString:@(APPMSG_METHOD_UPDATE_BULB_STATE)]) {
+		[self handleBulbStateUpdate:update];
 	}
 }
 
@@ -109,6 +111,13 @@ typedef void(^PLFPebbleAppMessageOnSent)(PBWatch *, NSDictionary *, NSError *);
 			[self queueUpdate:end onSent:nil];
 		}];
 	}
+}
+
+- (void)handleBulbStateUpdate:(NSDictionary *)update
+{
+	BOOL state = [update[@(APPMSG_BULB_STATE_KEY)] boolValue];
+	NSUInteger index = [update[@(APPMSG_BULB_INDEX_KEY)] unsignedIntegerValue];
+	[self.delegate appMessageHandler:self setOn:state forBulbAtIndex:index];
 }
 
 #pragma mark - Queueing

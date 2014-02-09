@@ -14,14 +14,14 @@ const int INBOUND_BUFFER_SIZE = 124;
 const int OUTBOUND_BUFFER_SIZE = 64;
 
 typedef struct {
-	int index;
-	bool state;
+	uint8_t index;
+	uint8_t state;
 	char label[32];
 } Bulb;
 
 typedef struct {
-	int index;
-	const char *label;
+	uint8_t index;
+	char label[32];
 } Color;
 
 static int bulb_count = 0;
@@ -38,9 +38,19 @@ static Color *colors;
 /////////////////////////////////////
 
 static void msg_request_bulbs() {
-	DictionaryIterator *iterator = NULL;
+	DictionaryIterator *iterator;
 	app_message_outbox_begin(&iterator);
 	dict_write_cstring(iterator, APPMSG_METHOD_KEY, APPMSG_METHOD_GET_BULBS);
+	dict_write_end(iterator);
+	app_message_outbox_send();
+}
+
+static void msg_update_bulb_state(Bulb *bulb, uint8_t state) {
+	DictionaryIterator *iterator;
+	app_message_outbox_begin(&iterator);
+	dict_write_cstring(iterator, APPMSG_METHOD_KEY, APPMSG_METHOD_UPDATE_BULB_STATE);
+	dict_write_uint8(iterator, APPMSG_BULB_INDEX_KEY, bulb->index);
+	dict_write_uint8(iterator, APPMSG_BULB_STATE_KEY, state);
 	dict_write_end(iterator);
 	app_message_outbox_send();
 }
@@ -98,6 +108,22 @@ static void msg_inbox_received(DictionaryIterator *iterator, void *context) {
 	}
 }
 
+static void msg_outbox_sent(DictionaryIterator *iterator, void *context) {
+	Tuple *methodTuple = dict_find(iterator, APPMSG_METHOD_KEY);
+	if (methodTuple != NULL) {
+		char *method = methodTuple->value->cstring;
+		if (strcmp(method, APPMSG_METHOD_UPDATE_BULB_STATE) == 0) {
+			Tuple *index = dict_find(iterator, APPMSG_BULB_INDEX_KEY);
+			Tuple *state = dict_find(iterator, APPMSG_BULB_STATE_KEY);
+			if (index != NULL && state != NULL) {
+				Bulb *bulb = &bulbs[index->value->uint8];
+				bulb->state = state->value->uint8;
+				menu_layer_reload_data(main_menu);
+			}
+		}
+	}
+}
+
 /////////////////////////////////////
 // Main Menu
 /////////////////////////////////////
@@ -125,9 +151,9 @@ static void main_draw_row(GContext *ctx, const Layer *cell_layer, MenuIndex *cel
 	if (bulbs_loading) {
 		menu_cell_basic_draw(ctx, cell_layer, "Loading...", NULL, NULL);
 	} else {
-		Bulb bulb = bulbs[cell_index->row];
-		const char *state = bulb.state ? "On" : "Off";
-		menu_cell_basic_draw(ctx, cell_layer, bulb.label, state, NULL);
+		Bulb *bulb = &bulbs[cell_index->row];
+		const char *state = bulb->state ? "On" : "Off";
+		menu_cell_basic_draw(ctx, cell_layer, bulb->label, state, NULL);
 	}
 }
 
@@ -140,9 +166,8 @@ static void main_click(struct MenuLayer *menu_layer, MenuIndex *cell_index, void
 }
 
 static void main_long_click(struct MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context) {
-	Bulb bulb = bulbs[cell_index->row];
-	bulb.state = (bulb.state == 1) ? 0 : 1;
-	menu_layer_reload_data(menu_layer);
+	Bulb *bulb = &bulbs[cell_index->row];
+	msg_update_bulb_state(bulb, (bulb->state == 1) ? 0 : 1);
 }
 
 /////////////////////////////////////
@@ -217,6 +242,7 @@ static void bulb_window_unload(Window *window) {
 
 static void init(void) {
 	app_message_register_inbox_received(msg_inbox_received);
+	app_message_register_outbox_sent(msg_outbox_sent);
 	app_message_open(INBOUND_BUFFER_SIZE, OUTBOUND_BUFFER_SIZE);
 
 	main_window = window_create();

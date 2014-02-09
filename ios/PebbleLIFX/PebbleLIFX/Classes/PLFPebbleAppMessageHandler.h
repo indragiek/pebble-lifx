@@ -21,4 +21,5 @@
 @required
 // Return array of LIFXBulbState objects.
 - (NSArray *)appMessageHandlerHandleBulbRequest:(PLFPebbleAppMessageHandler *)handler;
+- (void)appMessageHandler:(PLFPebbleAppMessageHandler *)handler setOn:(BOOL)on forBulbAtIndex:(NSUInteger)index;
 @end
