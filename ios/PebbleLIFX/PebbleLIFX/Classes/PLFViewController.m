@@ -136,6 +136,30 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 	}
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return (indexPath.section == PLFCustomColorsSectionIndex);
+}
+
+#pragma mark - UITableViewDelegate
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (indexPath.section == PLFCustomColorsSectionIndex) {
+		return UITableViewCellEditingStyleDelete;
+	}
+	return UITableViewCellEditingStyleNone;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (indexPath.section == PLFCustomColorsSectionIndex && editingStyle == UITableViewCellEditingStyleDelete) {
+		[self.colors removeObjectAtIndex:indexPath.row];
+		[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+		[self persistCustomColors];
+	}
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -154,12 +178,16 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 	PLFColor *colorObject = [PLFColor colorWithLabel:label color:color];
 	[self.colors insertObject:colorObject atIndex:0];
 	[self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:PLFCustomColorsSectionIndex]] withRowAnimation:UITableViewRowAnimationAutomatic];
-	NSUserDefaults.standardUserDefaults.plf_savedColors = self.colors;
-	[NSUserDefaults.standardUserDefaults synchronize];
+	[self persistCustomColors];
 }
 
 - (void)colorPicker:(PLFColorPickerViewController *)picker didSelectColor:(UIColor *)color
 {
 	
+}
+
+- (void)persistCustomColors
+{
+	NSUserDefaults.standardUserDefaults.plf_savedColors = self.colors;
 }
 @end
