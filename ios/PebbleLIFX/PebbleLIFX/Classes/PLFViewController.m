@@ -9,18 +9,24 @@
 #import "PLFViewController.h"
 #import "PLFConnectedTableViewCell.h"
 #import "PLFColorTableViewCell.h"
+#import "PLFBulbTableViewCell.h"
 #import "PLFColor.h"
 #import "PLFColorPickerViewController.h"
 #import "NSUserDefaults+PLFPreferences.h"
+#import "LIFXSessionManager.h"
+#import "LIFXBulbStub.h"
 #import <PebbleKit/PebbleKit.h>
 
 static NSInteger const PLFPebbleSectionIndex = 0;
-static NSInteger const PLFCustomColorsSectionIndex = 1;
-static NSInteger const PLFDefaultColorsSectionIndex = 2;
+static NSInteger const PLFBulbsSectionIndex = 1;
+static NSInteger const PLFCustomColorsSectionIndex = 2;
+static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
 @interface PLFViewController () <PBWatchDelegate, PLFColorPickerViewControllerDelegate>
 @property (nonatomic, strong, readonly) NSMutableArray *colors;
+@property (nonatomic, strong) NSArray *bulbs;
 @property (nonatomic, strong) PBWatch *connectedWatch;
+@property (nonatomic, strong, readonly) LIFXSessionManager *lifxManager;
 @end
 
 @implementation PLFViewController
@@ -46,6 +52,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 
 - (void)commonInitForPLFViewController
 {
+	_lifxManager = [LIFXSessionManager new];
 	_colors = [NSMutableArray array];
 	NSArray *savedColors = NSUserDefaults.standardUserDefaults.plf_savedColors;
 	if (savedColors.count) {
@@ -75,6 +82,17 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 {
 	[super viewDidLoad];
 	self.connectedWatch = PBPebbleCentral.defaultCentral.lastConnectedWatch;
+	[self.lifxManager getBulbStubsWithSuccess:^(NSURLSessionDataTask *task, NSArray *stubs) {
+		self.bulbs = stubs;
+		NSMutableArray *paths = [NSMutableArray arrayWithCapacity:stubs.count];
+		[stubs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+			NSIndexPath *path = [NSIndexPath indexPathForRow:idx inSection:PLFBulbsSectionIndex];
+			[paths addObject:path];
+		}];
+		[self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
+		NSLog(@"%@", error);
+	}];
 }
 
 - (void)dealloc
@@ -86,7 +104,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 3;
+	return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -94,6 +112,8 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 	switch (section) {
 		case PLFPebbleSectionIndex:
 			return 1;
+		case PLFBulbsSectionIndex:
+			return self.bulbs.count;
 		case PLFCustomColorsSectionIndex:
 			return self.colors.count;
 		case PLFDefaultColorsSectionIndex:
@@ -108,6 +128,8 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 	switch (section) {
 		case PLFPebbleSectionIndex:
 			return NSLocalizedString(@"Pebble", nil);
+		case PLFBulbsSectionIndex:
+			return NSLocalizedString(@"Bulbs", nil);
 		case PLFCustomColorsSectionIndex:
 			return NSLocalizedString(@"Custom Colors", nil);
 		case PLFDefaultColorsSectionIndex:
@@ -124,6 +146,12 @@ static NSInteger const PLFDefaultColorsSectionIndex = 2;
 			PLFConnectedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFConnectedTableViewCellIdentifier];
 			cell.connected = self.connectedWatch.connected;
 			cell.pebbleName = self.connectedWatch.name;
+			return cell;
+		}
+		case PLFBulbsSectionIndex: {
+			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFBulbTableViewCellIdentifier];
+			LIFXBulbStub *stub = self.bulbs[indexPath.row];
+			cell.textLabel.text = stub.name;
 			return cell;
 		}
 		case PLFCustomColorsSectionIndex: {

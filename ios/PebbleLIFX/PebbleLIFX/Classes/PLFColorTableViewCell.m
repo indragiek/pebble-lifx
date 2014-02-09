@@ -19,26 +19,6 @@ NSString * const PLFColorTableViewCellIdentifier = @"ColorCell";
 
 @implementation PLFColorTableViewCell
 
-- (void)commonInitForPLFColorTableViewCell
-{
-}
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-	if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
-		[self commonInitForPLFColorTableViewCell];
-	}
-	return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-	if ((self = [super initWithCoder:aDecoder])) {
-		[self commonInitForPLFColorTableViewCell];
-	}
-	return self;
-}
-
 - (void)setColor:(PLFColor *)color
 {
 	if (_color != color) {
