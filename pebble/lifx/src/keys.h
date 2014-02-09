@@ -1,0 +1,9 @@
+#define APPMSG_METHOD_KEY 1
+#define APPMSG_METHOD_GET_BULBS "get_bulbs"
+#define APPMSG_METHOD_BEGIN_RELOAD_BULBS "begin_reload_bulbs"
+#define APPMSG_METHOD_RECEIVE_BULB "bulb"
+#define APPMSG_METHOD_END_RELOAD_BULBS "end_reload_bulbs"
+#define APPMSG_COUNT_KEY 2
+#define APPMSG_BULB_INDEX_KEY 3
+#define APPMSG_BULB_STATE_KEY 4
+#define APPMSG_BULB_LABEL_KEY 5

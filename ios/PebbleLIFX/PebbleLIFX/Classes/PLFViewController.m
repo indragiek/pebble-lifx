@@ -15,6 +15,7 @@
 #import "NSUserDefaults+PLFPreferences.h"
 #import "LIFXSessionManager.h"
 #import "LIFXBulbState_Private.h"
+#import "PLFPebbleAppMessageHandler.h"
 #import <PebbleKit/PebbleKit.h>
 
 static NSInteger const PLFPebbleSectionIndex = 0;
@@ -22,11 +23,12 @@ static NSInteger const PLFBulbsSectionIndex = 1;
 static NSInteger const PLFCustomColorsSectionIndex = 2;
 static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
-@interface PLFViewController () <PBWatchDelegate, PLFColorPickerViewControllerDelegate>
+@interface PLFViewController () <PBWatchDelegate, PLFColorPickerViewControllerDelegate, PLFPebbleAppMessageHandlerDelegate>
 @property (nonatomic, strong, readonly) NSMutableArray *colors;
 @property (nonatomic, strong) NSArray *bulbStates;
 @property (nonatomic, strong) PBWatch *connectedWatch;
 @property (nonatomic, strong, readonly) LIFXSessionManager *lifxManager;
+@property (nonatomic, strong) PLFPebbleAppMessageHandler *pebbleHandler;
 @end
 
 @implementation PLFViewController
@@ -119,6 +121,24 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 - (void)dealloc
 {
 	[self.connectedWatch closeSession:nil];
+}
+
+#pragma mark - Accessors
+
+- (void)setConnectedWatch:(PBWatch *)connectedWatch
+{
+	if (_connectedWatch != connectedWatch) {
+		_connectedWatch = connectedWatch;
+		self.pebbleHandler = [[PLFPebbleAppMessageHandler alloc] initWithWatch:connectedWatch];
+		self.pebbleHandler.delegate = self;
+	}
+}
+
+#pragma mark - PLFAppMessageHandlerDelegate
+
+- (NSArray *)appMessageHandlerHandleBulbRequest:(PLFPebbleAppMessageHandler *)handler
+{
+	return self.bulbStates;
 }
 
 #pragma mark - UITableViewDataSource
