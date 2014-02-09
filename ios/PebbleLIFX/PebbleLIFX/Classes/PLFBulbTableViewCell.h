@@ -11,5 +11,5 @@
 extern NSString * const PLFBulbTableViewCellIdentifier;
 
 @interface PLFBulbTableViewCell : UITableViewCell
-
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @end

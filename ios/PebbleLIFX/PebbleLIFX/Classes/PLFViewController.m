@@ -169,9 +169,9 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 			return cell;
 		}
 		case PLFBulbsSectionIndex: {
-			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFBulbTableViewCellIdentifier];
+			PLFBulbTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFBulbTableViewCellIdentifier];
 			LIFXBulbState *state = self.bulbStates[indexPath.row];
-			cell.textLabel.text = state.bulb.name;
+			cell.nameLabel.text = state.bulb.name;
 			return cell;
 		}
 		case PLFCustomColorsSectionIndex: {
@@ -227,6 +227,13 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (IBAction)powerToggle:(id)sender
+{
+	CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+	NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+	NSLog(@"%@", indexPath);
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -268,6 +275,5 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 {
 	NSUserDefaults.standardUserDefaults.plf_savedColors = self.colors;
 }
-
 
 @end
