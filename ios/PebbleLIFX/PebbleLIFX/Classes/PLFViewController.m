@@ -14,7 +14,6 @@
 #import "PLFColorPickerViewController.h"
 #import "NSUserDefaults+PLFPreferences.h"
 #import "LIFXSessionManager.h"
-#import "LIFXBulbStub.h"
 #import <PebbleKit/PebbleKit.h>
 
 static NSInteger const PLFPebbleSectionIndex = 0;
@@ -24,7 +23,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
 @interface PLFViewController () <PBWatchDelegate, PLFColorPickerViewControllerDelegate>
 @property (nonatomic, strong, readonly) NSMutableArray *colors;
-@property (nonatomic, strong) NSArray *bulbs;
+@property (nonatomic, strong) NSArray *bulbStates;
 @property (nonatomic, strong) PBWatch *connectedWatch;
 @property (nonatomic, strong, readonly) LIFXSessionManager *lifxManager;
 @end
@@ -78,25 +77,41 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
 #pragma mark - View Controller Lifecycle
 
+- (void)getBulbStates:(void(^)(NSArray *bulbStates))completion
+{
+	[self.lifxManager getBulbStubsWithSuccess:^(NSURLSessionDataTask *task, NSArray *stubs) {
+		NSMutableArray *bulbs = [NSMutableArray arrayWithCapacity:stubs.count];
+		dispatch_group_t group = dispatch_group_create();
+		for (LIFXBulbStub *stub in stubs) {
+			dispatch_group_enter(group);
+			[self.lifxManager getStateForBulb:stub success:^(NSURLSessionDataTask *task, LIFXBulbState *state) {
+				[bulbs addObject:state];
+				dispatch_group_leave(group);
+			} failure:^(NSURLSessionDataTask *task, NSError *error) {
+				NSLog(@"%@", error);
+				dispatch_group_leave(group);
+			}];
+		}
+		dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+			if (completion) completion(bulbs);
+		});
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
+		NSLog(@"%@", error);
+	}];
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	self.connectedWatch = PBPebbleCentral.defaultCentral.lastConnectedWatch;
-	[self.lifxManager getBulbStubsWithSuccess:^(NSURLSessionDataTask *task, NSArray *stubs) {
-		self.bulbs = stubs;
-		NSMutableArray *paths = [NSMutableArray arrayWithCapacity:stubs.count];
-		[stubs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+	[self getBulbStates:^(NSArray *bulbStates) {
+		self.bulbStates = bulbStates;
+		NSMutableArray *paths = [NSMutableArray arrayWithCapacity:bulbStates.count];
+		[bulbStates enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 			NSIndexPath *path = [NSIndexPath indexPathForRow:idx inSection:PLFBulbsSectionIndex];
 			[paths addObject:path];
 		}];
 		[self.tableView insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationAutomatic];
-		[self.lifxManager getStateForBulb:stubs[0] success:^(NSURLSessionDataTask *task, id responseObject) {
-			NSLog(@"%@", responseObject);
-		} failure:^(NSURLSessionDataTask *task, NSError *error) {
-			NSLog(@"%@", error);
-		}];
-	} failure:^(NSURLSessionDataTask *task, NSError *error) {
-		NSLog(@"%@", error);
 	}];
 }
 
@@ -118,7 +133,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 		case PLFPebbleSectionIndex:
 			return 1;
 		case PLFBulbsSectionIndex:
-			return self.bulbs.count;
+			return self.bulbStates.count;
 		case PLFCustomColorsSectionIndex:
 			return self.colors.count;
 		case PLFDefaultColorsSectionIndex:
@@ -155,8 +170,8 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 		}
 		case PLFBulbsSectionIndex: {
 			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFBulbTableViewCellIdentifier];
-			LIFXBulbStub *stub = self.bulbs[indexPath.row];
-			cell.textLabel.text = stub.name;
+			LIFXBulbState *state = self.bulbStates[indexPath.row];
+			cell.textLabel.text = state.bulb.name;
 			return cell;
 		}
 		case PLFCustomColorsSectionIndex: {
@@ -240,9 +255,10 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
 - (void)testBulbColor:(UIColor *)color
 {
-	if (self.bulbs.count) {
+	if (self.bulbStates.count) {
 		// TODO: Fix this to work with all bulbs instead of just the first bulb.
-		[self.lifxManager setColor:color forBulb:self.bulbs[0] withSuccess:nil failure:^(NSURLSessionDataTask *task, NSError *error) {
+		LIFXBulbState *state = self.bulbStates[0];
+		[self.lifxManager setColor:color forBulb:state.bulb withSuccess:nil failure:^(NSURLSessionDataTask *task, NSError *error) {
 			NSLog(@"%@", error);
 		}];
 	}

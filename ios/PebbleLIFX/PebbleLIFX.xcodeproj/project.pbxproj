@@ -308,6 +308,8 @@
 		032152F518A6F6E300C86159 /* PebbleLIFX */ = {
 			isa = PBXGroup;
 			children = (
+				03976F2118A7531A008FE84C /* Categories */,
+				03976F2018A75312008FE84C /* LIFX */,
 				0321532418A6F82700C86159 /* External */,
 				0321530118A6F6E300C86159 /* Main.storyboard */,
 				0321536B18A7140500C86159 /* PLFAppDelegate.h */,
@@ -326,19 +328,10 @@
 				0321535D18A70D1800C86159 /* PLFSettingsViewController.m */,
 				0321536218A713DF00C86159 /* PLFSettingTableViewCell.h */,
 				0321536318A713DF00C86159 /* PLFSettingTableViewCell.m */,
-				0321536E18A7170100C86159 /* NSUserDefaults+PLFPreferences.h */,
-				0321536F18A7170100C86159 /* NSUserDefaults+PLFPreferences.m */,
-				0321538A18A71BFD00C86159 /* LIFXSessionManager.h */,
-				0321538B18A71BFD00C86159 /* LIFXSessionManager.m */,
 				03976ED418A71E33008FE84C /* PLFColorPickerViewController.h */,
 				03976ED518A71E33008FE84C /* PLFColorPickerViewController.m */,
-				03976F1318A73055008FE84C /* LIFXBulbStub.h */,
-				03976F1418A73055008FE84C /* LIFXBulbStub.m */,
 				03976F1918A7342B008FE84C /* PLFBulbTableViewCell.h */,
 				03976F1A18A7342B008FE84C /* PLFBulbTableViewCell.m */,
-				03976F1C18A73610008FE84C /* LIFXBulbStub_Private.h */,
-				03976F1D18A74105008FE84C /* LIFXBulbState.h */,
-				03976F1E18A74105008FE84C /* LIFXBulbState.m */,
 				0321530718A6F6E300C86159 /* Images.xcassets */,
 				032152F618A6F6E300C86159 /* Supporting Files */,
 			);
@@ -499,6 +492,29 @@
 				03976EF418A71F87008FE84C /* BitmapScaleManipulator.m */,
 			);
 			path = Manipulators;
+			sourceTree = "<group>";
+		};
+		03976F2018A75312008FE84C /* LIFX */ = {
+			isa = PBXGroup;
+			children = (
+				0321538A18A71BFD00C86159 /* LIFXSessionManager.h */,
+				0321538B18A71BFD00C86159 /* LIFXSessionManager.m */,
+				03976F1318A73055008FE84C /* LIFXBulbStub.h */,
+				03976F1418A73055008FE84C /* LIFXBulbStub.m */,
+				03976F1C18A73610008FE84C /* LIFXBulbStub_Private.h */,
+				03976F1D18A74105008FE84C /* LIFXBulbState.h */,
+				03976F1E18A74105008FE84C /* LIFXBulbState.m */,
+			);
+			name = LIFX;
+			sourceTree = "<group>";
+		};
+		03976F2118A7531A008FE84C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0321536E18A7170100C86159 /* NSUserDefaults+PLFPreferences.h */,
+				0321536F18A7170100C86159 /* NSUserDefaults+PLFPreferences.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

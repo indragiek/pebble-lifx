@@ -38,7 +38,7 @@
 {
 	CGFloat hue, saturation, brightness = 0.1; // Lock the brightness to avoid blinding light
 	[color getHue:&hue saturation:&saturation brightness:NULL alpha:NULL];
-	NSString *path = [NSString stringWithFormat:@"/bulbs/%d/color", stub.index];
+	NSString *path = [NSString stringWithFormat:@"/bulbs/%lu/color", (unsigned long)stub.index];
 	NSDictionary *parameters = @{@"hue" : @(hue * UINT16_MAX),
 								 @"saturation" : @(saturation * UINT16_MAX),
 								 @"luminance" : @(brightness * UINT16_MAX),
@@ -49,7 +49,7 @@
 
 - (NSURLSessionDataTask *)getStateForBulb:(LIFXBulbStub *)stub success:(void (^)(NSURLSessionDataTask *task, LIFXBulbState *state))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-	NSString *path = [NSString stringWithFormat:@"/bulbs/%d", stub.index];
+	NSString *path = [NSString stringWithFormat:@"/bulbs/%lu", (unsigned long)stub.index];
 	return [self GET:path parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary *response) {
 		LIFXBulbState *state = [MTLJSONAdapter modelOfClass:LIFXBulbState.class fromJSONDictionary:response error:nil];
 		if (success) success(task, state);
