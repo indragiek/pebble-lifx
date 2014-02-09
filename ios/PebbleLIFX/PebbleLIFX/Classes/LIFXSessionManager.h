@@ -8,6 +8,8 @@
 
 #import "AFHTTPSessionManager.h"
 
+@class LIFXBulbStub;
 @interface LIFXSessionManager : AFHTTPSessionManager
 - (NSURLSessionDataTask *)getBulbStubsWithSuccess:(void (^)(NSURLSessionDataTask *task, NSArray *stubs))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+- (NSURLSessionDataTask *)setColor:(UIColor *)color forBulb:(LIFXBulbStub *)bulb withSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 @end

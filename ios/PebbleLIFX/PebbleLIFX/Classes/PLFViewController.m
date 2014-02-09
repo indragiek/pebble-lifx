@@ -193,6 +193,24 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 	}
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	PLFColor *color = nil;
+	if (indexPath.section == PLFCustomColorsSectionIndex) {
+		color = self.colors[indexPath.row];
+	} else if (indexPath.section == PLFDefaultColorsSectionIndex) {
+		color = self.class.defaultColors[indexPath.row];
+	}
+	if (color) {
+		[self.lifxManager setColor:color.color forBulb:self.bulbs[0] withSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+			NSLog(@"Success");
+		} failure:^(NSURLSessionDataTask *task, NSError *error) {
+			NSLog(@"%@", error);
+		}];
+	}
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

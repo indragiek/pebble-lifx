@@ -34,4 +34,17 @@
 	} failure:failure];
 }
 
+- (NSURLSessionDataTask *)setColor:(UIColor *)color forBulb:(LIFXBulbStub *)bulb withSuccess:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+	CGFloat hue, saturation, brightness = 0.1; // Lock the brightness to avoid blinding light
+	[color getHue:&hue saturation:&saturation brightness:NULL alpha:NULL];
+	NSString *path = [NSString stringWithFormat:@"/bulbs/%d/color", bulb.index];
+	NSDictionary *parameters = @{@"hue" : @(hue * UINT16_MAX),
+								 @"saturation" : @(saturation * UINT16_MAX),
+								 @"luminance" : @(brightness * UINT16_MAX),
+								 @"whiteColor" : @0,
+								 @"fadeTime" : @0};
+	return [self POST:path parameters:parameters success:success failure:failure];
+}
+
 @end

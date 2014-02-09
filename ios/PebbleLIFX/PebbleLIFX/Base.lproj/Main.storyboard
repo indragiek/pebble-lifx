@@ -214,6 +214,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pick Color" id="SJD-qc-h1N">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="AZL-qq-ZVL">
+                            <connections>
+                                <action selector="cancel:" destination="6mL-F0-IPV" id="v5s-hp-Oez"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="ZQ7-oc-kDy">
                             <connections>
                                 <action selector="pickColor:" destination="6mL-F0-IPV" id="tQB-2d-EXq"/>
