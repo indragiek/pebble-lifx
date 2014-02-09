@@ -11,4 +11,9 @@
 @interface LIFXBulbStub : MTLModel <MTLJSONSerializing>
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *address;
+// This stores the index of the bulb as it exists on the server.
+//
+// This is dirty and the LIFX bulb address should be used instead to
+// locate a particular bulb.
+@property (nonatomic, assign, readonly) NSUInteger index;
 @end

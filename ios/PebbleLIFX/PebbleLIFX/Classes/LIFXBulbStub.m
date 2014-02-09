@@ -7,6 +7,7 @@
 //
 
 #import "LIFXBulbStub.h"
+#import "LIFXBulbStub_Private.h"
 
 @implementation LIFXBulbStub
 

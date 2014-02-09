@@ -66,6 +66,7 @@ function get_bulb_state(req, res, next) {
 	// This is kind of fragile since the response could be for a different bulb,
 	// but hey, HACKATHON.
 	lx.once('bulbstate', function(b) {
+		console.log(util.inspect(b));
 		res.writeHead(200);
 		res.write(JSON.stringify(b));
 		res.end();

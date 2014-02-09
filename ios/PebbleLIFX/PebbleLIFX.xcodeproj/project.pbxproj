@@ -230,6 +230,7 @@
 		03976F1418A73055008FE84C /* LIFXBulbStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LIFXBulbStub.m; path = Classes/LIFXBulbStub.m; sourceTree = "<group>"; };
 		03976F1918A7342B008FE84C /* PLFBulbTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFBulbTableViewCell.h; path = Classes/PLFBulbTableViewCell.h; sourceTree = "<group>"; };
 		03976F1A18A7342B008FE84C /* PLFBulbTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFBulbTableViewCell.m; path = Classes/PLFBulbTableViewCell.m; sourceTree = "<group>"; };
+		03976F1C18A73610008FE84C /* LIFXBulbStub_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LIFXBulbStub_Private.h; path = Classes/LIFXBulbStub_Private.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +333,7 @@
 				03976F1418A73055008FE84C /* LIFXBulbStub.m */,
 				03976F1918A7342B008FE84C /* PLFBulbTableViewCell.h */,
 				03976F1A18A7342B008FE84C /* PLFBulbTableViewCell.m */,
+				03976F1C18A73610008FE84C /* LIFXBulbStub_Private.h */,
 				0321530718A6F6E300C86159 /* Images.xcassets */,
 				032152F618A6F6E300C86159 /* Supporting Files */,
 			);
