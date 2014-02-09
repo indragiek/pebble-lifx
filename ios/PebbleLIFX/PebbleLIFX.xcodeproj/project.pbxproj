@@ -39,6 +39,8 @@
 		0321534F18A6F8CA00C86159 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534E18A6F8CA00C86159 /* MessageUI.framework */; };
 		0321535218A6FB4C00C86159 /* PLFConnectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */; };
 		0321535518A6FD2800C86159 /* PLFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535418A6FD2800C86159 /* PLFColor.m */; };
+		0321535818A7027400C86159 /* PLFColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535718A7027400C86159 /* PLFColorView.m */; };
+		0321535B18A704C600C86159 /* PLFColorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535A18A704C600C86159 /* PLFColorTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,10 @@
 		0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFConnectedTableViewCell.m; path = Classes/PLFConnectedTableViewCell.m; sourceTree = "<group>"; };
 		0321535318A6FD2800C86159 /* PLFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFColor.h; path = Classes/PLFColor.h; sourceTree = "<group>"; };
 		0321535418A6FD2800C86159 /* PLFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFColor.m; path = Classes/PLFColor.m; sourceTree = "<group>"; };
+		0321535618A7027400C86159 /* PLFColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLFColorView.h; sourceTree = "<group>"; };
+		0321535718A7027400C86159 /* PLFColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLFColorView.m; sourceTree = "<group>"; };
+		0321535918A704C600C86159 /* PLFColorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFColorTableViewCell.h; path = Classes/PLFColorTableViewCell.h; sourceTree = "<group>"; };
+		0321535A18A704C600C86159 /* PLFColorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFColorTableViewCell.m; path = Classes/PLFColorTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,10 @@
 				0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */,
 				0321535318A6FD2800C86159 /* PLFColor.h */,
 				0321535418A6FD2800C86159 /* PLFColor.m */,
+				0321535618A7027400C86159 /* PLFColorView.h */,
+				0321535718A7027400C86159 /* PLFColorView.m */,
+				0321535918A704C600C86159 /* PLFColorTableViewCell.h */,
+				0321535A18A704C600C86159 /* PLFColorTableViewCell.m */,
 				0321530718A6F6E300C86159 /* Images.xcassets */,
 				032152F618A6F6E300C86159 /* Supporting Files */,
 			);
@@ -358,6 +368,7 @@
 				0321533A18A6F84600C86159 /* AFHTTPRequestOperationManager.m in Sources */,
 				0321533C18A6F84600C86159 /* AFNetworkReachabilityManager.m in Sources */,
 				0321534018A6F84600C86159 /* AFURLResponseSerialization.m in Sources */,
+				0321535B18A704C600C86159 /* PLFColorTableViewCell.m in Sources */,
 				0321533E18A6F84600C86159 /* AFURLConnectionOperation.m in Sources */,
 				0321533D18A6F84600C86159 /* AFSecurityPolicy.m in Sources */,
 				0321535518A6FD2800C86159 /* PLFColor.m in Sources */,
@@ -365,6 +376,7 @@
 				0321533F18A6F84600C86159 /* AFURLRequestSerialization.m in Sources */,
 				0321534118A6F84600C86159 /* AFURLSessionManager.m in Sources */,
 				032152FC18A6F6E300C86159 /* main.m in Sources */,
+				0321535818A7027400C86159 /* PLFColorView.m in Sources */,
 				0321530018A6F6E300C86159 /* PLFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

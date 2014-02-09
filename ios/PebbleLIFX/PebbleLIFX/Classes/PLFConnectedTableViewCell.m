@@ -10,8 +10,8 @@
 
 NSString * const PLFConnectedTableViewCellIdentifier = @"ConnectedCell";
 
-#define PLF_CONNECTED_COLOR [UIColor greenColor]
-#define PLF_DISCONNECTED_COLOR [UIColor redColor]
+#define PLF_CONNECTED_COLOR [UIColor colorWithRed:0.43 green:0.91 blue:0.47 alpha:1.0]
+#define PLF_DISCONNECTED_COLOR [UIColor colorWithRed:0.99 green:0.56 blue:0.56 alpha:1.0]
 
 @implementation PLFConnectedTableViewCell
 

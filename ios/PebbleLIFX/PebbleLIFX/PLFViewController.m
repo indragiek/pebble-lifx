@@ -8,6 +8,8 @@
 
 #import "PLFViewController.h"
 #import "PLFConnectedTableViewCell.h"
+#import "PLFColorTableViewCell.h"
+#import "PLFColor.h"
 #import <PebbleKit/PebbleKit.h>
 
 static NSInteger const PLFPebbleSectionIndex = 0;
@@ -20,11 +22,23 @@ static NSInteger const PLFColorsSectionIndex = 1;
 
 @implementation PLFViewController
 
+#pragma mark - Defaults
+
++ (NSArray *)defaultColors
+{
+	return @[[PLFColor colorWithLabel:@"Red" color:UIColor.redColor],
+			 [PLFColor colorWithLabel:@"Orange" color:UIColor.orangeColor],
+			 [PLFColor colorWithLabel:@"Yellow" color:UIColor.yellowColor],
+			 [PLFColor colorWithLabel:@"Green" color:UIColor.greenColor],
+			 [PLFColor colorWithLabel:@"Blue" color:UIColor.blueColor],
+			 [PLFColor colorWithLabel:@"Purple" color:UIColor.purpleColor]];
+}
+
 #pragma mark - Initialization
 
 - (void)commonInitForPLFViewController
 {
-	_colors = [NSMutableArray array];
+	_colors = [NSMutableArray arrayWithArray:self.class.defaultColors];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -91,7 +105,9 @@ static NSInteger const PLFColorsSectionIndex = 1;
 		cell.pebbleName = self.connectedWatch.name;
 		return cell;
 	} else {
-		return nil;
+		PLFColorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFColorTableViewCellIdentifier];
+		cell.color = self.colors[indexPath.row];
+		return cell;
 	}
 }
 
