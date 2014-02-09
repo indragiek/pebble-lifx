@@ -14,7 +14,8 @@
 #import <PebbleKit/PebbleKit.h>
 
 static NSInteger const PLFPebbleSectionIndex = 0;
-static NSInteger const PLFColorsSectionIndex = 1;
+static NSInteger const PLFCustomColorsSectionIndex = 1;
+static NSInteger const PLFDefaultColorsSectionIndex = 2;
 
 @interface PLFViewController () <PBWatchDelegate, PLFColorPickerViewControllerDelegate>
 @property (nonatomic, strong, readonly) NSMutableArray *colors;
@@ -27,19 +28,24 @@ static NSInteger const PLFColorsSectionIndex = 1;
 
 + (NSArray *)defaultColors
 {
-	return @[[PLFColor colorWithLabel:@"Red" color:UIColor.redColor],
-			 [PLFColor colorWithLabel:@"Orange" color:UIColor.orangeColor],
-			 [PLFColor colorWithLabel:@"Yellow" color:UIColor.yellowColor],
-			 [PLFColor colorWithLabel:@"Green" color:UIColor.greenColor],
-			 [PLFColor colorWithLabel:@"Blue" color:UIColor.blueColor],
-			 [PLFColor colorWithLabel:@"Purple" color:UIColor.purpleColor]];
+	static NSArray *colors = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		colors = @[[PLFColor colorWithLabel:@"Red" color:UIColor.redColor],
+				   [PLFColor colorWithLabel:@"Orange" color:UIColor.orangeColor],
+				   [PLFColor colorWithLabel:@"Yellow" color:UIColor.yellowColor],
+				   [PLFColor colorWithLabel:@"Green" color:UIColor.greenColor],
+				   [PLFColor colorWithLabel:@"Blue" color:UIColor.blueColor],
+				   [PLFColor colorWithLabel:@"Purple" color:UIColor.purpleColor]];
+	});
+	return colors;
 }
 
 #pragma mark - Initialization
 
 - (void)commonInitForPLFViewController
 {
-	_colors = [NSMutableArray arrayWithArray:self.class.defaultColors];
+	_colors = [NSMutableArray array];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -70,7 +76,7 @@ static NSInteger const PLFColorsSectionIndex = 1;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 2;
+	return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -78,8 +84,10 @@ static NSInteger const PLFColorsSectionIndex = 1;
 	switch (section) {
 		case PLFPebbleSectionIndex:
 			return 1;
-		case PLFColorsSectionIndex:
+		case PLFCustomColorsSectionIndex:
 			return self.colors.count;
+		case PLFDefaultColorsSectionIndex:
+			return self.class.defaultColors.count;
 		default:
 			return 0;
 	}
@@ -90,8 +98,10 @@ static NSInteger const PLFColorsSectionIndex = 1;
 	switch (section) {
 		case PLFPebbleSectionIndex:
 			return NSLocalizedString(@"Pebble", nil);
-		case PLFColorsSectionIndex:
-			return NSLocalizedString(@"Colors", nil);
+		case PLFCustomColorsSectionIndex:
+			return NSLocalizedString(@"Custom Colors", nil);
+		case PLFDefaultColorsSectionIndex:
+			return NSLocalizedString(@"Default Colors", nil);
 		default:
 			return nil;
 	}
@@ -99,15 +109,25 @@ static NSInteger const PLFColorsSectionIndex = 1;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (indexPath.section == PLFPebbleSectionIndex) {
-		PLFConnectedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFConnectedTableViewCellIdentifier];
-		cell.connected = self.connectedWatch.connected;
-		cell.pebbleName = self.connectedWatch.name;
-		return cell;
-	} else {
-		PLFColorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFColorTableViewCellIdentifier];
-		cell.color = self.colors[indexPath.row];
-		return cell;
+	switch (indexPath.section) {
+		case PLFPebbleSectionIndex: {
+			PLFConnectedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFConnectedTableViewCellIdentifier];
+			cell.connected = self.connectedWatch.connected;
+			cell.pebbleName = self.connectedWatch.name;
+			return cell;
+		}
+		case PLFCustomColorsSectionIndex: {
+			PLFColorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFColorTableViewCellIdentifier];
+			cell.color = self.colors[indexPath.row];
+			return cell;
+		}
+		case PLFDefaultColorsSectionIndex: {
+			PLFColorTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PLFColorTableViewCellIdentifier];
+			cell.color = self.class.defaultColors[indexPath.row];
+			return cell;
+		}
+		default:
+			return nil;
 	}
 }
 
