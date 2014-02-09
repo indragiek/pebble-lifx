@@ -37,6 +37,8 @@
 		0321534B18A6F8BC00C86159 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534A18A6F8BC00C86159 /* CoreBluetooth.framework */; };
 		0321534D18A6F8C500C86159 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534C18A6F8C500C86159 /* CoreMotion.framework */; };
 		0321534F18A6F8CA00C86159 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321534E18A6F8CA00C86159 /* MessageUI.framework */; };
+		0321535218A6FB4C00C86159 /* PLFConnectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */; };
+		0321535518A6FD2800C86159 /* PLFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321535418A6FD2800C86159 /* PLFColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,10 @@
 		0321534A18A6F8BC00C86159 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		0321534C18A6F8C500C86159 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		0321534E18A6F8CA00C86159 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		0321535018A6FB4C00C86159 /* PLFConnectedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFConnectedTableViewCell.h; path = Classes/PLFConnectedTableViewCell.h; sourceTree = "<group>"; };
+		0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFConnectedTableViewCell.m; path = Classes/PLFConnectedTableViewCell.m; sourceTree = "<group>"; };
+		0321535318A6FD2800C86159 /* PLFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PLFColor.h; path = Classes/PLFColor.h; sourceTree = "<group>"; };
+		0321535418A6FD2800C86159 /* PLFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PLFColor.m; path = Classes/PLFColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +180,10 @@
 				0321530118A6F6E300C86159 /* Main.storyboard */,
 				0321530418A6F6E300C86159 /* PLFViewController.h */,
 				0321530518A6F6E300C86159 /* PLFViewController.m */,
+				0321535018A6FB4C00C86159 /* PLFConnectedTableViewCell.h */,
+				0321535118A6FB4C00C86159 /* PLFConnectedTableViewCell.m */,
+				0321535318A6FD2800C86159 /* PLFColor.h */,
+				0321535418A6FD2800C86159 /* PLFColor.m */,
 				0321530718A6F6E300C86159 /* Images.xcassets */,
 				032152F618A6F6E300C86159 /* Supporting Files */,
 			);
@@ -342,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0321535218A6FB4C00C86159 /* PLFConnectedTableViewCell.m in Sources */,
 				0321533918A6F84600C86159 /* AFHTTPRequestOperation.m in Sources */,
 				0321530618A6F6E300C86159 /* PLFViewController.m in Sources */,
 				0321533A18A6F84600C86159 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -349,6 +360,7 @@
 				0321534018A6F84600C86159 /* AFURLResponseSerialization.m in Sources */,
 				0321533E18A6F84600C86159 /* AFURLConnectionOperation.m in Sources */,
 				0321533D18A6F84600C86159 /* AFSecurityPolicy.m in Sources */,
+				0321535518A6FD2800C86159 /* PLFColor.m in Sources */,
 				0321533B18A6F84600C86159 /* AFHTTPSessionManager.m in Sources */,
 				0321533F18A6F84600C86159 /* AFURLRequestSerialization.m in Sources */,
 				0321534118A6F84600C86159 /* AFURLSessionManager.m in Sources */,
