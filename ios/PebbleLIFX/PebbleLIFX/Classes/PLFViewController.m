@@ -80,25 +80,43 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
 #pragma mark - View Controller Lifecycle
 
+- (LIFXBulbState *)getStateForBulbSync:(LIFXBulbStub *)bulb {
+    __block LIFXBulbState *state = nil;
+    dispatch_group_t dispatchGroup = dispatch_group_create();
+
+    [self.lifxManager getStateForBulb:bulb success:^(NSURLSessionDataTask *task, LIFXBulbState *s) {
+        state = s;
+        dispatch_group_leave(dispatchGroup);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        dispatch_group_leave(dispatchGroup);
+    }];
+
+    dispatch_group_enter(dispatchGroup);
+    dispatch_group_wait(dispatchGroup, DISPATCH_TIME_FOREVER);
+
+    return state;
+}
+
 - (void)getBulbStates:(void(^)(NSArray *bulbStates))completion
 {
 	[self.lifxManager getBulbStubsWithSuccess:^(NSURLSessionDataTask *task, NSArray *stubs) {
 		NSMutableArray *bulbs = [NSMutableArray arrayWithCapacity:stubs.count];
-		dispatch_group_t group = dispatch_group_create();
-		for (LIFXBulbStub *stub in stubs) {
-			dispatch_group_enter(group);
-			[self.lifxManager getStateForBulb:stub success:^(NSURLSessionDataTask *task, LIFXBulbState *state) {
-				[bulbs addObject:state];
-				dispatch_group_leave(group);
-			} failure:^(NSURLSessionDataTask *task, NSError *error) {
-				NSLog(@"%@", error);
-				dispatch_group_leave(group);
-			}];
-		}
-		dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-			if (completion) completion(bulbs);
-		});
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            for (LIFXBulbStub *bulb in stubs) {
+                LIFXBulbState *state = [self getStateForBulbSync:bulb];
+                if (state) {
+                    [bulbs addObject:state];
+                }
+            }
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(bulbs);
+            });
+        });
+
 	} failure:^(NSURLSessionDataTask *task, NSError *error) {
+        completion(nil);
 		NSLog(@"%@", error);
 	}];
 }
