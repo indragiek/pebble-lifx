@@ -52,6 +52,7 @@
 	NSString *path = [NSString stringWithFormat:@"/bulbs/%lu", (unsigned long)stub.index];
 	return [self GET:path parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary *response) {
 		LIFXBulbState *state = [MTLJSONAdapter modelOfClass:LIFXBulbState.class fromJSONDictionary:response error:nil];
+		state.bulb.index = stub.index;
 		if (success) success(task, state);
 	} failure:failure];
 }
