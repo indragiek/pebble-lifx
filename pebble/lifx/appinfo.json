@@ -9,7 +9,10 @@
     "watchface": false
   },
   "appKeys": {
-    "dummy": 0
+    "APPMSG_METHOD_KEY":  1,
+    "APPMSG_COUNT_KEY": 2,
+    "APPMSG_INDEX_KEY" : 3,
+    "APPMSG_BULB_STATE_KEY" : 4
   },
   "resources": {
     "media": []
