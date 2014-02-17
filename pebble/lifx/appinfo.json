@@ -12,7 +12,8 @@
     "APPMSG_METHOD_KEY":  1,
     "APPMSG_COUNT_KEY": 2,
     "APPMSG_INDEX_KEY" : 3,
-    "APPMSG_BULB_STATE_KEY" : 4
+    "APPMSG_BULB_STATE_KEY" : 4,
+    "APPMSG_LABEL_KEY" : 5
   },
   "resources": {
     "media": []

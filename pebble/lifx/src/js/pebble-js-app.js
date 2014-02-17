@@ -3,18 +3,23 @@ var URL = "http://192.168.1.250:3000";
 
 var LIFX = {};
 
-LIFX.request = function(method, path, cb) {
+LIFX.request = function(method, path, parameterString, cb) {
 	var req = new XMLHttpRequest();
 	var fullURL = URL + path;
   	req.open(method, fullURL, true);
   	console.log(method + " request to " + fullURL);
+  	if (parameterString) {
+		req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		req.setRequestHeader("Content-length", parameterString.length);
+  		console.log("Parameters = " + parameterString);
+  	}
 
   	req.onload = function(e) {
 	    if (req.readyState == 4 && req.status == 200) {
 	      if (req.status == 200) {
 	      	console.log(fullURL + " > " + req.responseText);
 
-	        var response = JSON.parse(req.responseText);
+	        var response = req.responseText ? JSON.parse(req.responseText) : null;
 	        cb(response);
 	        return;
 	      } 
@@ -22,17 +27,17 @@ LIFX.request = function(method, path, cb) {
 
 	    console.log("Error in request to " + fullURL);
 	    //  + " (" + JSON.stringify(e) + ")");
-      	cb(null);
+      	cb();
 	};
-	req.send();
+	req.send(parameterString);
 };
 
 LIFX.GET = function(path, cb) {
-	this.request("GET", path, cb);
+	this.request("GET", path, null, cb);
 };
 
-LIFX.POST = function(path, cb) {
-	this.request("POST", path, cb);
+LIFX.POST = function(path, parameterString, cb) {
+	this.request("POST", path, parameterString, cb);
 };
 
 LIFX.getBulbs = function(cb) {
@@ -40,7 +45,7 @@ LIFX.getBulbs = function(cb) {
 };
 
 LIFX.getBulbState = function(bulbIndex, cb) {
-	this.GET("/bulb/" + bulbIndex, cb);
+	this.GET("/bulbs/" + bulbIndex, cb);
 };
 
 // 
@@ -74,6 +79,9 @@ LIFX_JS.handleAppMessage = function(appMessage) {
 		case "get_bulbs":
 			LIFX_JS.handleGetBulbs();
 		break;
+		case "bulb_state":
+			LIFX_JS.handleChangeBulbState(appMessage.payload);
+			break;
 		default:
 			console.log("Unhandled appMessage");
 		break;
@@ -128,12 +136,12 @@ LIFX_JS.handleGetBulbs = function() {
 			}, function() {
 				var idx = 0;
 
-				LIFX_JS.serializeFunctionCalls(states, function(bulb, f) {
+				LIFX_JS.serializeFunctionCalls(states, function(state, f) {
 					LIFX_JS.sendAppMessage({
 						"APPMSG_METHOD_KEY": "bulb",
 						"APPMSG_INDEX_KEY" : idx,
-						"APPMSG_BULB_STATE_KEY" : 0,
-						"APPMSG_LABEL_KEY" : "test"
+						"APPMSG_BULB_STATE_KEY" : state.state.power > 0 ? 1 : 0,
+						5 : state.bulb.name // "APPMSG_LABEL_KEY" doesn't work?
 					}, function() {
 						f();
 					}, function() {
@@ -151,13 +159,21 @@ LIFX_JS.handleGetBulbs = function() {
 	});
 };
 
+LIFX_JS.handleChangeBulbState = function(messagePayload) {
+	bulbIndex = messagePayload["APPMSG_INDEX_KEY"];
+	bulbState = messagePayload["APPMSG_BULB_STATE_KEY"];
+
+	console.log("Setting bulb " + bulbIndex + " to " + bulbState);
+
+	LIFX.POST("/bulbs/" + bulbIndex + "/on_off", "state=" + (bulbState ? "1" : "0"), function(response) {
+
+	});
+};
+
 //
 
 Pebble.addEventListener("ready", function(e) {
-    console.log("Hello world! - Sent from your javascript application.");
-    LIFX.getBulbs(function(bulbs) {
-    	console.log("bulbs: " + JSON.stringify(bulbs));
-    });
-
-	Pebble.addEventListener("appmessage", LIFX_JS.handleAppMessage);
+    console.log("LIFX Javascript started");
 });
+
+Pebble.addEventListener("appmessage", LIFX_JS.handleAppMessage);
