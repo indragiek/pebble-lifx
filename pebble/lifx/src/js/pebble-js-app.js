@@ -97,7 +97,7 @@ LIFX_JS.serializeFunctionCalls = function(array, iterator, finishedCB) {
 	var results = [];
 
 	(function next() {
-		item = array.pop()
+		item = array.shift()
 
 		iterator(item, function(result) {
 			results.push(result);
