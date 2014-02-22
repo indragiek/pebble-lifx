@@ -83,40 +83,40 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 #pragma mark - View Controller Lifecycle
 
 - (LIFXBulbState *)getStateForBulbStub:(LIFXBulbStub *)bulb {
-    __block LIFXBulbState *state = nil;
+	__block LIFXBulbState *state = nil;
 	dispatch_semaphore_t sem = dispatch_semaphore_create(0);
-
-    [self.lifxManager getStateForBulb:bulb success:^(NSURLSessionDataTask *task, LIFXBulbState *s) {
-        state = s;
-        dispatch_semaphore_signal(sem);
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        dispatch_semaphore_signal(sem);
-    }];
-
-    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
-    return state;
+	
+	[self.lifxManager getStateForBulb:bulb success:^(NSURLSessionDataTask *task, LIFXBulbState *s) {
+		state = s;
+		dispatch_semaphore_signal(sem);
+	} failure:^(NSURLSessionDataTask *task, NSError *error) {
+		dispatch_semaphore_signal(sem);
+	}];
+	
+	dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+	return state;
 }
 
 - (void)getBulbStates:(void(^)(NSArray *bulbStates))completion
 {
 	[self.lifxManager getBulbStubsWithSuccess:^(NSURLSessionDataTask *task, NSArray *stubs) {
 		NSMutableArray *bulbs = [NSMutableArray arrayWithCapacity:stubs.count];
-
-        dispatch_async(self.bulbStateQueue, ^{
-            for (LIFXBulbStub *bulb in stubs) {
-                LIFXBulbState *state = [self getStateForBulbStub:bulb];
-                if (state) {
-                    [bulbs addObject:state];
-                }
-            }
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(bulbs);
-            });
-        });
-
+		
+		dispatch_async(self.bulbStateQueue, ^{
+			for (LIFXBulbStub *bulb in stubs) {
+				LIFXBulbState *state = [self getStateForBulbStub:bulb];
+				if (state) {
+					[bulbs addObject:state];
+				}
+			}
+			
+			dispatch_async(dispatch_get_main_queue(), ^{
+				completion(bulbs);
+			});
+		});
+		
 	} failure:^(NSURLSessionDataTask *task, NSError *error) {
-        completion(nil);
+		completion(nil);
 		NSLog(@"%@", error);
 	}];
 }
