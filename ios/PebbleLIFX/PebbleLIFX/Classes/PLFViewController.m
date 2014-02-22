@@ -29,6 +29,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 @property (nonatomic, strong) PBWatch *connectedWatch;
 @property (nonatomic, strong, readonly) LIFXSessionManager *lifxManager;
 @property (nonatomic, strong) PLFPebbleAppMessageHandler *pebbleHandler;
+@property (nonatomic) dispatch_queue_t bulbStateQueue;
 @end
 
 @implementation PLFViewController
@@ -56,6 +57,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 {
 	_lifxManager = [LIFXSessionManager new];
 	_colors = [NSMutableArray array];
+	_bulbStateQueue = dispatch_queue_create("com.indragie.PebbleLIFX.BulbStateQueue", DISPATCH_QUEUE_SERIAL);
 	NSArray *savedColors = NSUserDefaults.standardUserDefaults.plf_savedColors;
 	if (savedColors.count) {
 		[_colors addObjectsFromArray:savedColors];
@@ -82,18 +84,16 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
 - (LIFXBulbState *)getStateForBulbStub:(LIFXBulbStub *)bulb {
     __block LIFXBulbState *state = nil;
-    dispatch_group_t dispatchGroup = dispatch_group_create();
+	dispatch_semaphore_t sem = dispatch_semaphore_create(0);
 
     [self.lifxManager getStateForBulb:bulb success:^(NSURLSessionDataTask *task, LIFXBulbState *s) {
         state = s;
-        dispatch_group_leave(dispatchGroup);
+        dispatch_semaphore_signal(sem);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        dispatch_group_leave(dispatchGroup);
+        dispatch_semaphore_signal(sem);
     }];
 
-    dispatch_group_enter(dispatchGroup);
-    dispatch_group_wait(dispatchGroup, DISPATCH_TIME_FOREVER);
-
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
     return state;
 }
 
@@ -102,7 +102,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 	[self.lifxManager getBulbStubsWithSuccess:^(NSURLSessionDataTask *task, NSArray *stubs) {
 		NSMutableArray *bulbs = [NSMutableArray arrayWithCapacity:stubs.count];
 
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(self.bulbStateQueue, ^{
             for (LIFXBulbStub *bulb in stubs) {
                 LIFXBulbState *state = [self getStateForBulbStub:bulb];
                 if (state) {
