@@ -3,7 +3,7 @@
 
 ![PebbleLIFX](https://raw.github.com/indragiek/pebble-lifx/master/images/ios-icon.png)
 
-This project won 1st place at the UAlberta CompE Club Hackathon 2014.
+This project won 1st place at the UAlberta CompE Club Hackathon 2014. [Presentation slides](https://speakerdeck.com/indragiek/pebble-plus-lifx-compe-club-2014-hackathon-project).
 
 ### Getting Started
 
@@ -19,6 +19,8 @@ $ cd server
 $ node server.js
 ```
 #### iOS App
+
+![PebbleLIFX iOS App](https://raw.github.com/indragiek/pebble-lifx/master/images/ios-screen.png)
 
 * Install [Xcode](https://itunes.apple.com/ca/app/xcode/id497799835?mt=12) if necessary. You will also need an [iOS Developer Program Membership](https://developer.apple.com/programs/ios/) to run the app on your device.
 * Clone the submodules necessary to build the iOS app:
