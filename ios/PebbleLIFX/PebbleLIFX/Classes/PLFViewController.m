@@ -80,7 +80,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
 #pragma mark - View Controller Lifecycle
 
-- (LIFXBulbState *)getStateForBulbSync:(LIFXBulbStub *)bulb {
+- (LIFXBulbState *)getStateForBulbStub:(LIFXBulbStub *)bulb {
     __block LIFXBulbState *state = nil;
     dispatch_group_t dispatchGroup = dispatch_group_create();
 
@@ -104,7 +104,7 @@ static NSInteger const PLFDefaultColorsSectionIndex = 3;
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             for (LIFXBulbStub *bulb in stubs) {
-                LIFXBulbState *state = [self getStateForBulbSync:bulb];
+                LIFXBulbState *state = [self getStateForBulbStub:bulb];
                 if (state) {
                     [bulbs addObject:state];
                 }
