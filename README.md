@@ -1,6 +1,8 @@
 ## pebble-lifx
 ### Pebble controller for LIFX bulbs
 
+![PebbleLIFX](https://raw.github.com/indragiek/pebble-lifx/master/images/ios-icon.png)
+
 This project won 1st place at the UAlberta CompE Club Hackathon 2014.
 
 ### Getting Started
@@ -30,6 +32,9 @@ $ git submodule update --init --recursive
 * The bulbs should appear in the Bulbs section in the iOS app. You can turn a bulb on and off using the power button and switch colors using the colors list (or tap the **+** button on the top right to add your own colors).
 
 #### Pebble App
+
+![PebbleLIFX Pebble Bulbs List](https://raw.github.com/indragiek/pebble-lifx/master/images/pebble1.png)
+![PebbleLIFX Pebble Colors List](https://raw.github.com/indragiek/pebble-lifx/master/images/pebble2.png)
 
 * Download and install the [Pebble SDK 2.0](https://developer.getpebble.com/2/)
 * Open the Pebble app on your iOS device, tap "Developer" in the sidebar, and turn on the server. Note the IP address.
